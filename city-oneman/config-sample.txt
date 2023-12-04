@@ -1,0 +1,27 @@
+﻿&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;Config xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        ShowDebugLabel="true">
+  &lt;Route>
+    &lt;Beacons>
+      &lt;ChangeEnabledBeacon TypeNumber="900" />
+    &lt;/Beacons>
+  &lt;/Route>
+  &lt;Vehicle>
+    &lt;IsEnabledByDefault>false&lt;/IsEnabledByDefault>
+    &lt;Keys>
+      &lt;LeftOpen KeyCode="E" />
+      &lt;LeftClose KeyCode="R" />
+      &lt;LeftReopen KeyCode="T" />
+      &lt;RightOpen KeyCode="O" />
+      &lt;RightClose KeyCode="I" />
+      &lt;RightReopen KeyCode="U" />
+    &lt;/Keys>
+    &lt;AtsPanelValues>
+      &lt;Mode Index="255" />
+    &lt;/AtsPanelValues>
+    &lt;AtsSounds>
+      &lt;DoorSwitchOn Index="250" />
+      &lt;DoorSwitchOff Index="251" />
+    &lt;/AtsSounds>
+  &lt;/Vehicle>
+&lt;/Config>

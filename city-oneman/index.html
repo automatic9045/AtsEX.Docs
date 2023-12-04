@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no,address=no,email=no" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0" />
+    <meta name="theme-color" content="#fff" />
+
+    <meta name="author" content="automatic9045" />
+    <meta property="og:site_name" content="都市型ワンマンプラグイン - AtsEX - 岡オカ営業所" />
+    <meta property="og:title" content="都市型ワンマンプラグイン - AtsEX - 岡オカ営業所" />
+    <meta property="og:description" content="主に首都圏の地下鉄で見られる都市型ワンマン運転の、ドア開閉操作を再現するプラグインです。AtsEX車両プラグインとして実装されています。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://automatic9045.github.io/AtsEX/img/ogp.png" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@atF9045" />
+
+    <title>都市型ワンマンプラグイン - AtsEX - 岡オカ営業所</title>
+    <base href="https://automatic9045.github.io/AtsEX/" />
+    <link rel="icon" type="image/svg+xml" href="../img/bus.svg">
+    <link rel="apple-touch-icon" type="image/png" href="../img/bus.png">
+    <link rel="stylesheet" type="text/css" href="css/basic.css" />
+    <link rel="stylesheet" type="text/css" href="css/header.css" />
+    <link rel="stylesheet" type="text/css" href="css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="copyright/highlight/vs2015.min.css">
+    <script type="text/javascript" src="js/basic.js"></script>
+    <script type="text/javascript" src="js/copyright.js"></script>
+    <script type="text/javascript" src="js/sns.js"></script>
+    <script type="text/javascript" src="copyright/highlight/highlight.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <script>includeByClasses("header.html", "header", 0);</script>
+    </header>
+    <div id="content">
+        <section class="title-with-description">
+            <h1>都市型ワンマンプラグイン</h1>
+            <p>
+                主に首都圏の地下鉄で見られる都市型ワンマン運転の、ドア開閉操作を再現するプラグインです。<br />
+                <strong>AtsEX車両プラグイン</strong>として実装されています。
+            </p>
+        </section>
+        <section>
+            <h2>プラグインの特長</h2>
+            <p>
+                従来のワンマンプラグインと異なり、ドアの動作は疑似再現ではありません。<mark>実際にBVE内部のドアを操作できる仕様</mark>となっています。<br />
+                これにより
+                <ul>
+                    <li>ドア音をATSサウンドとして再生するなどの手間が不要となるため、既存の車両への導入が圧倒的に容易</li>
+                    <li>路線データの駅リストに設定されている発車時刻以前でも閉扉・発車することが可能</li>
+                    <li>停止位置許容範囲外であっても、運転士の一存でドア扱いをしてしまうことが可能</li>
+                </ul>
+                等のメリットがあります。<mark>非常に豊かな表現を、ごく簡単な手間で</mark>追加することが可能です。
+            </p>
+
+            <h2>操作方法</h2>
+            <p>
+                キーアサインはCityOneman.Config.xmlを編集することで変更可能です（後述）が、初期設定では以下の通りです。
+            </p>
+            <table class="with-border">
+                <tr>
+                    <th>キー</th>
+                    <th>動作</th>
+                </tr>
+                <tr>
+                    <td>E</td>
+                    <td>左開扉</td>
+                </tr>
+                <tr>
+                    <td>R</td>
+                    <td>左閉扉</td>
+                </tr>
+                <tr>
+                    <td>T</td>
+                    <td>左再開扉（押している間）</td>
+                </tr>
+                <tr>
+                    <td>O</td>
+                    <td>右開扉</td>
+                </tr>
+                <tr>
+                    <td>I</td>
+                    <td>右閉扉</td>
+                </tr>
+                <tr>
+                    <td>U</td>
+                    <td>右再開扉（押している間）</td>
+                </tr>
+            </table>
+        </section>
+        <div class="white-space"></div>
+        <div class="gray">
+            <section>
+                <h2>プラグインを組み込む手順</h2>
+                <h3>1. プラグインを車両に配置する</h3>
+                <p>
+                    下のボタンよりダウンロードしたファイルを<strong>ゾーン識別子を削除した上で</strong>解凍し、車両ファイル（Vehicle.txtなど）に対する位置関係が次の画像のようになるように配置します。
+                </p>
+                <p>
+                    <img src="../AtsEX.Docs.Plugins/city-oneman/locating.png" />
+                </p>
+                <div class="note note-warn">
+                    <h4>ゾーン識別子の削除を忘れずに！</h4>
+                    <p>
+                        この手順を飛ばしたままパッケージを解凍してしまうと、不可解なエラーの原因となる場合があります。<br />
+                        そのままパッケージを解凍し、プラグインを配置してしまった場合は、ゾーン識別子を削除した上でもう一度解凍からやり直してください。
+                    </p>
+                    <p>
+                        ゾーン識別子を削除する方法については、<a href="download/installation-guide/">手動でのパッケージの適用方法 - AtsEXインストールガイド</a>の「1-1. ゾーン識別子を削除する」をご参照ください。
+                    </p>
+                </div>
+                <div class="note note-info">
+                    <h4>既にVehiclePluginUsing.xmlなどのAtsEX車両プラグインリストファイルが存在する場合</h4>
+                    <p>
+                        本プラグインに同梱のVehiclePluginUsing.xmlは使用せず、既存のプラグインリストファイルに以下のコードを追記してください。
+                    </p>
+                    <pre><code class="language-xml">&lt;Assembly Path="AtsExPlugins\CityOneman.dll" /></code></pre>
+                </div>
+
+                <h3>2. （必要に応じて）マップに地上子を設置する</h3>
+                <p>
+                    CityOneman.Config.xmlにて設定された（後述）所定の種別の地上子を設置すると、その地上子を設置した位置から見て次の駅からワンマン/ツーマンを切り替えることができます。<br />
+                    切替地上子の種別は、初期設定では<strong>900</strong>です。
+                </p>
+
+                <h4>次駅からワンマンに切り替える場合</h4>
+                <pre><code class="language-csharp">Beacon.Put(900, 0, 0);
+Beacon.Put(900, 0, 1);</code></pre>
+
+                <h4>次駅からツーマンに切り替える場合</h4>
+                <pre><code class="language-csharp">Beacon.Put(900, 0, 1);
+Beacon.Put(900, 0, 0);</code></pre>
+
+                <h3>もし上手く動作しなかったら</h3>
+                <p>
+                    地上子やサウンドのインデックスが他のプラグインと競合しているのかもしれません。<br />
+                    使用するインデックスは<mark>設定ファイル</mark>（CityOneman.Config.xml）から変更することができます。
+                </p>
+
+                <h2>設定ファイルの文法</h2>
+                <h3 class="header-accent">コードの例</h3>
+                <pre><code id="config-sample" class="language-xml"></code></pre>
+                <script>includeById("../AtsEX.Docs.Plugins/city-oneman/config-sample.txt", "config-sample");</script>
+
+                <h3 class="header-accent">各要素・属性の解説</h3>
+                <table class="with-border">
+                    <tr>
+                        <th>要素・属性</th>
+                        <th>初期値</th>
+                        <th>内容</th>
+                    </tr>
+                    <tr>
+                        <td>ShowDebugLabel</td>
+                        <td>true</td>
+                        <td>現在の状態をラベルとして表示するか。<code>true</code>で表示、<code>false</code>で非表示</td>
+                    </tr>
+                    <tr>
+                        <td>ChangeEnabledBeacon</td>
+                        <td>900</td>
+                        <td>モード切替地上子として認識する地上子種別</td>
+                    </tr>
+                    <tr>
+                        <td>IsEnabledByDefault</td>
+                        <td>true</td>
+                        <td>読込時点でワンマンモードを有効化するか。<code>true</code>でワンマン、<code>false</code>でツーマン</td>
+                    </tr>
+                    <tr>
+                        <td>LeftOpen</td>
+                        <td>E</td>
+                        <td>左開扉。<code>None</code>で使用しない</td>
+                    </tr>
+                    <tr>
+                        <td>LeftClose</td>
+                        <td>R</td>
+                        <td>左閉扉。<code>None</code>で使用しない</td>
+                    </tr>
+                    <tr>
+                        <td>LeftReopen</td>
+                        <td>T</td>
+                        <td>左再開扉（押している間）。<code>None</code>で使用しない</td>
+                    </tr>
+                    <tr>
+                        <td>RightOpen</td>
+                        <td>O</td>
+                        <td>右開扉。<code>None</code>で使用しない</td>
+                    </tr>
+                    <tr>
+                        <td>RightClose</td>
+                        <td>I</td>
+                        <td>右閉扉。<code>None</code>で使用しない</td>
+                    </tr>
+                    <tr>
+                        <td>RightReopen</td>
+                        <td>U</td>
+                        <td>右再開扉（押している間）。<code>None</code>で使用しない</td>
+                    </tr>
+                    <tr>
+                        <td>AtsPanelValues→Mode</td>
+                        <td>-1</td>
+                        <td>モードをパネルに出力するインデックス。<code>-1</code>で使用しない</td>
+                    </tr>
+                    <tr>
+                        <td>AtsSounds→DoorSwitchOn</td>
+                        <td>-1</td>
+                        <td>ボタンを押すサウンドのインデックス。<code>-1</code>で使用しない</td>
+                    </tr>
+                    <tr>
+                        <td>AtsSounds→DoorSwitchOff</td>
+                        <td>-1</td>
+                        <td>ボタンを離すサウンドのインデックス。<code>-1</code>で使用しない</td>
+                    </tr>
+                </table>
+
+                <div class="note note-info">
+                    パネル・サウンドのインデックスは、AtsArrayExtenderを導入している場合256～1023を指定しても認識します。
+                </div>
+            </section>
+        </div>
+        <section>
+            <h2>ダウンロード</h2>
+            <p class="center">
+                <a class="button with-border white-when-hover" href="https://github.com/automatic9045/AtsEx.Plugins.CityOneman/releases/">
+                    GitHubからダウンロード▶
+                </a>
+            </p>
+        </section>
+
+        <script>hljs.highlightAll();</script>
+    </div>
+    <footer class="footer">
+        <script>includeByClasses("footer.html", "footer", 0);</script>
+    </footer>
+</body>
+</html>
