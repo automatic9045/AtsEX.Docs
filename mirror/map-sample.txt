@@ -1,0 +1,14 @@
+﻿BveTs Map 2.02:utf-8
+
+include '&lt;AtsEx::USEATSEX>'; // 追加
+include '&lt;AtsEx::MapPluginUsing>MapPluginUsing.xml'; // 追加
+
+Structure.Load('Structures.csv');
+Signal.Load('Signal.csv');
+Station.Load('Stations.csv');
+
+Background.Change('Bg1');
+
+Curve.SetGauge(1.067);
+Curve.SetCenter(1.067 / 2);
+...

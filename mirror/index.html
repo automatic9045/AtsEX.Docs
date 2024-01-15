@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no,address=no,email=no" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0" />
+    <meta name="theme-color" content="#fff" />
+
+    <meta name="author" content="automatic9045" />
+    <meta property="og:site_name" content="ミラープラグイン - AtsEX - 岡オカ営業所" />
+    <meta property="og:title" content="ミラープラグイン - AtsEX - 岡オカ営業所" />
+    <meta property="og:description" content="マップ上に、実際の景色が映るミラーを設置するプラグインです。AtsEXマッププラグインとして実装されています。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://automatic9045.github.io/AtsEX/img/ogp.png" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@atF9045" />
+
+    <title>ミラープラグイン - AtsEX - 岡オカ営業所</title>
+    <base href="https://automatic9045.github.io/AtsEX/" />
+    <link rel="icon" type="image/svg+xml" href="../img/bus.svg">
+    <link rel="apple-touch-icon" type="image/png" href="../img/bus.png">
+    <link rel="stylesheet" type="text/css" href="css/basic.css" />
+    <link rel="stylesheet" type="text/css" href="css/header.css" />
+    <link rel="stylesheet" type="text/css" href="css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="copyright/highlight/vs2015.min.css">
+    <script type="text/javascript" src="js/basic.js"></script>
+    <script type="text/javascript" src="js/copyright.js"></script>
+    <script type="text/javascript" src="js/sns.js"></script>
+    <script type="text/javascript" src="copyright/highlight/highlight.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <script>includeByClasses("header.html", "header", 0);</script>
+    </header>
+    <div id="content">
+        <div class="subheader-image">
+            <img src="../AtsEX.Docs.Plugins/mirror/header.jpg" />
+            <span>Mirror Plugin</span>
+        </div>
+        <section class="title-with-description">
+            <h1>ミラープラグイン</h1>
+            <p>
+                マップ上に、実際の景色が映るミラーを設置するプラグインです。<br />
+                <strong>AtsEXマッププラグイン</strong>として実装されています。
+            </p>
+        </section>
+        <section>
+            <h2>プラグインの特長</h2>
+            <p>
+                ストラクチャーの特定テクスチャを置き換えて動作する仕様ですので、<mark>通常のストラクチャーを設置するのとほぼ同じ要領</mark>で簡単に導入することができます。<br />
+                また、<mark>反射する景色の方向は設置位置と視点の位置関係から自動で計算</mark>されます。ミラー設置するだけですぐに動作し、煩雑な設定などは一切必要ありません。
+            </p>
+        </section>
+        <div class="white-space"></div>
+        <div class="gray">
+            <section>
+                <h2>プラグインをデータに組み込む手順</h2>
+                <h3>1. プラグインをマップに配置する</h3>
+                <h4>1-1. プラグインリストファイルを配置する</h4>
+                <p>
+                    下のボタンよりダウンロードしたファイルを<strong>ゾーン識別子を削除した上で</strong>解凍し、マップファイル（Map.txtなど）に対する位置関係が次の画像のようになるように配置します。
+                </p>
+                <p>
+                    <img src="../AtsEX.Docs.Plugins/mirror/locating.png" />
+                </p>
+
+                <h4>1-2. マップファイルにプラグインリストを指定する</h4>
+                <p>
+                    マップファイルを開き、次の例のように冒頭へ <code>AtsEx::USEATSEX</code> ヘッダー（または <code>AtsEx::NOMPI</code> ヘッダーでも可）、<code>AtsEx::MapPluginUsing</code> ヘッダーを追記します。
+                </p>
+                <pre><code id="map-sample" class="language-csharp"></code></pre>
+                <script>includeById("../AtsEX.Docs.Plugins/mirror/map-sample.txt", "map-sample");</script>
+
+                <div class="note note-warn">
+                    <h4>ゾーン識別子の削除を忘れずに！</h4>
+                    <p>
+                        この手順を飛ばしたままパッケージを解凍してしまうと、不可解なエラーの原因となる場合があります。<br />
+                        そのままパッケージを解凍し、プラグインを配置してしまった場合は、ゾーン識別子を削除した上でもう一度解凍からやり直してください。
+                    </p>
+                    <p>
+                        ゾーン識別子を削除する方法については、<a href="download/installation-guide/other.html">手動でのパッケージの適用方法 - AtsEXインストールガイド</a>の「1-1. ゾーン識別子を削除する」をご参照ください。
+                    </p>
+                </div>
+                <div class="note note-info">
+                    <h4>既にMapPluginUsing.xmlなどのAtsEXマッププラグインリストファイルが存在する場合</h4>
+                    <p>
+                        本プラグインに同梱のMapPluginUsing.xmlは使用せず、既存のプラグインリストファイルに以下のコードを追記してください。
+                    </p>
+                    <pre><code class="language-xml">&lt;Assembly Path="MapPlugins\Mirror.dll" /></code></pre>
+                </div>
+
+                <h3>2. ミラーとして使用するストラクチャーをマップ上に設置する</h3>
+                <p>
+                    ストラクチャーリストファイル、マップファイルにミラーとして使用するストラクチャーを定義・設置します。
+                </p>
+
+                <h4>ストラクチャーに要求される仕様</h4>
+                <ul>
+                    <li>景色が反射する部分に、テクスチャが<strong>左右反転した状態で</strong>貼られている必要があります。</li>
+                    <li>
+                        景色が反射する部分は、その3Dモデルのローカル座標系において、原点を中心にZ軸正方向へ向いている必要があります。
+                        <ul>
+                            <li>BVEが採用している左手系の場合です。Metasequoia、PMX Editorなどが採用している右手系では「Z軸負方向」となります。</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    <img class="two-contents" src="../AtsEX.Docs.Plugins/mirror/structure-lh.png" />
+                    <img class="two-contents" src="../AtsEX.Docs.Plugins/mirror/structure-rh.png" />
+                </p>
+                <p>
+                    以上の要求仕様に則って作成したストラクチャーをそのまま設置すると、上の画像1枚目のように進行方向真逆を向いてしまうので、基本的にY軸まわりに180°ほど回転させて設置することとなります。
+                </p>
+                <pre><code class="language-csharp">Structure['mirror'].Put('0', -2.5, 3.5, 0, -10, 170, 0, 0, 0);</code></pre>
+                <p>
+                    下の画像のミラーは、こちらの構文で設置しています。
+                </p>
+                <p>
+                    <img class="small" src="../AtsEX.Docs.Plugins/mirror/structure-sample.png" />
+                </p>
+
+                <h3>3. ストラクチャーの情報を設定ファイルに記述する</h3>
+                <p>
+                    手順2で設置したストラクチャーの情報をMirror.Config.xmlに記述します。<br />
+                    設定ファイルの文法は以下を参照してください。
+                </p>
+
+                <h2>設定ファイルの文法</h2>
+                <h3 class="header-accent">コードの例</h3>
+                <pre><code id="config-sample" class="language-xml"></code></pre>
+                <script>includeById("../AtsEX.Docs.Plugins/mirror/config-sample.txt", "config-sample");</script>
+
+                <h3 class="header-accent">各要素・属性の解説</h3>
+                <table class="with-border scrollable">
+                    <tr>
+                        <th>要素・属性</th>
+                        <th>初期値</th>
+                        <th>内容</th>
+                    </tr>
+                    <tr>
+                        <td>MirrorStructure<span class="wbr"><br /></span>→Key</td>
+                        <td>-</td>
+                        <td>ミラーとして使用するストラクチャーのキー</td>
+                    </tr>
+                    <tr>
+                        <td>MirrorStructure<span class="wbr"><br /></span>→TextureFileName</td>
+                        <td>-</td>
+                        <td>景色が反射する部分として上書きするテクスチャファイルのパス<span class="wbr"><br /></span>（後方一致）</td>
+                    </tr>
+                    <tr>
+                        <td>MirrorStructure<span class="wbr"><br /></span>→TextureWidth</td>
+                        <td>512</td>
+                        <td>景色が反射する部分のテクスチャの幅 [px]。<span class="wbr"><br /></span>上書き元のテクスチャの幅と異なっていても可、<strong>2の累乗でなくても可</strong></td>
+                    </tr>
+                    <tr>
+                        <td>MirrorStructure<span class="wbr"><br /></span>→TextureHeight</td>
+                        <td>512</td>
+                        <td>景色が反射する部分のテクスチャの高さ [px]。<span class="wbr"><br /></span>上書き元のテクスチャの高さと異なっていても可、<strong>2の累乗でなくても可</strong></td>
+                    </tr>
+                    <tr>
+                        <td>MirrorStructure<span class="wbr"><br /></span>→Zoom</td>
+                        <td>1</td>
+                        <td>反射する景色の拡大率。<span class="wbr"><br /></span>1より小さい数字を指定した場合、広角に描画する</td>
+                    </tr>
+                </table>
+            </section>
+        </div>
+        <section>
+            <h2>ライセンス</h2>
+            <p>
+                本ソフトウェアは、<a href="https://github.com/automatic9045/AtsEx.Plugins.Mirror/blob/main/LICENSE.txt">The MIT License modified with Commons Clause v1.0</a>のもとで使用を許諾されています。
+            </p>
+
+            <h3>ライセンスの要約</h3>
+            <div class="note note-warn">
+                <p>
+                    以下の要約は正確な表現ではありません。
+                    正式な文面はGitHub リポジトリの<a href="https://github.com/automatic9045/AtsEx.Plugins.Mirror/blob/main/LICENSE.txt">LICENSE.txt</a>を参照してください。
+                </p>
+            </div>
+            <p>
+                <ul>
+                    <li>原則として本ソフトウェアは自由に改変・使用することができます。</li>
+                    <li>ただし、本ソフトウェアを販売することはできません。</li>
+                    <li>また、本ソフトウェアを使った作品には、本ソフトウェアを使用している旨の著作権表示が必要です。</li>
+                    <li>本ソフトウェアを使用したことにより何かしらの損害を受けたとしても、作者は一切の責任を負わないものとします。</li>
+                </ul>
+            </p>
+
+            <h2>ダウンロード</h2>
+            <p class="center">
+                <a class="button with-border white-when-hover" href="https://github.com/automatic9045/AtsEx.Plugins.Mirror/releases/">
+                    GitHubからダウンロード▶
+                </a>
+            </p>
+        </section>
+
+        <script>hljs.highlightAll();</script>
+    </div>
+    <footer class="footer">
+        <script>includeByClasses("footer.html", "footer", 0);</script>
+    </footer>
+</body>
+</html>
