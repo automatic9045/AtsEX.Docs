@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no,address=no,email=no" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0" />
+    <meta name="theme-color" content="#fff" />
+
+    <meta name="author" content="automatic9045" />
+    <meta property="og:site_name" content="自列車ストラクチャープラグイン - AtsEX - 岡オカ営業所" />
+    <meta property="og:title" content="自列車ストラクチャープラグイン - AtsEX - 岡オカ営業所" />
+    <meta property="og:description" content="自列車の動きに追随するストラクチャーを設置するプラグインです。AtsEX車両プラグインとして実装されています。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://automatic9045.github.io/AtsEX/img/ogp.png" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@atF9045" />
+
+    <title>自列車ストラクチャープラグイン - AtsEX - 岡オカ営業所</title>
+    <base href="https://automatic9045.github.io/AtsEX/" />
+    <link rel="icon" type="image/svg+xml" href="../img/bus.svg">
+    <link rel="apple-touch-icon" type="image/png" href="../img/bus.png">
+    <link rel="stylesheet" type="text/css" href="css/basic.css" />
+    <link rel="stylesheet" type="text/css" href="css/header.css" />
+    <link rel="stylesheet" type="text/css" href="css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="copyright/highlight/vs2015.min.css">
+    <script type="text/javascript" src="js/basic.js"></script>
+    <script type="text/javascript" src="js/copyright.js"></script>
+    <script type="text/javascript" src="js/sns.js"></script>
+    <script type="text/javascript" src="copyright/highlight/highlight.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <script>includeByClasses("header.html", "header", 0);</script>
+    </header>
+    <div id="content">
+        <div class="subheader-image">
+            <img src="../AtsEX.Docs.Plugins/vehicle-structure/header.jpg" />
+            <span>Vehicle Structure</span>
+        </div>
+        <section class="title-with-description">
+            <h1>自列車ストラクチャープラグイン</h1>
+            <p>
+                自列車の動きに追随するストラクチャーを設置するプラグインです。<br />
+                <strong>AtsEX車両プラグイン</strong>として実装されています。
+            </p>
+        </section>
+        <section>
+            <h2>プラグインの特長</h2>
+            <p>
+                ストラクチャーはプラグインから動的に読み込まれる仕様ですので、路線データにストラクチャーを同梱する必要はありません。
+                車両データにストラクチャーを同梱することで、<mark>路線データには全く依存せず</mark>動作させることが可能です。
+            </p>
+            <p>
+
+                また、車両のストラクチャーは<mark>車体の揺れに合わせた振動</mark>に対応。
+                一部分のみを振動させることもできるので、例えば「車体は振動させるが、台車は振動させない」といったように組み合わせて使用することもできます。
+            </p>
+            <div class="note note-warn">
+                <p>
+                    本プラグインで追加される自列車ストラクチャーは、ミラーやカメラなどに映り込ませるためのものです。<br />
+                    自列車の外観を直接眺める用途は想定していませんので、その点ご留意の上でご使用ください。
+                </p>
+            </div>
+        </section>
+        <div class="white-space"></div>
+        <div class="gray">
+            <section>
+                <h2>プラグインをデータに組み込む手順</h2>
+                <h3>1. プラグインを車両に配置する</h3>
+                <p>
+                    下のボタンよりダウンロードしたファイルを<strong>ゾーン識別子を削除した上で</strong>解凍し、車両ファイル（Vehicle.txtなど）に対する位置関係が次の画像のようになるように配置します。
+                </p>
+                <p>
+                    <img src="../AtsEX.Docs.Plugins/vehicle-structure/locating.png" />
+                </p>
+                <div class="note note-warn">
+                    <h4>ゾーン識別子の削除を忘れずに！</h4>
+                    <p>
+                        この手順を飛ばしたままパッケージを解凍してしまうと、不可解なエラーの原因となる場合があります。<br />
+                        そのままパッケージを解凍し、プラグインを配置してしまった場合は、ゾーン識別子を削除した上でもう一度解凍からやり直してください。
+                    </p>
+                    <p>
+                        ゾーン識別子を削除する方法については、<a href="download/installation-guide/other.html">手動でのパッケージの適用方法 - AtsEXインストールガイド</a>の「1-1. ゾーン識別子を削除する」をご参照ください。
+                    </p>
+                </div>
+                <div class="note note-info">
+                    <h4>既にVehiclePluginUsing.xmlなどのAtsEX車両プラグインリストファイルが存在する場合</h4>
+                    <p>
+                        本プラグインに同梱のVehiclePluginUsing.xmlは使用せず、既存のプラグインリストファイルに以下のコードを追記してください。
+                    </p>
+                    <pre><code class="language-xml">&lt;Assembly Path="AtsExPlugins\VehicleStructure.dll" /></code></pre>
+                </div>
+
+                <h3>2. 車両ストラクチャーを配置し、設定ファイルに記述する</h3>
+                <p>
+                    自列車ストラクチャーとして使用するストラクチャーを車両データ内に配置し、その設定をVehicleStructure.Config.xmlに記述します。<br />
+                    設定ファイルの文法は以下を参照してください。
+                </p>
+
+                <h2>設定ファイルの文法</h2>
+                <h3 class="header-accent">コードの例</h3>
+                <pre><code id="config-sample" class="language-xml"></code></pre>
+                <script>includeById("../AtsEX.Docs.Plugins/vehicle-structure/config-sample.txt", "config-sample");</script>
+
+                <h3 class="header-accent">各要素・属性の解説</h3>
+                <table class="with-border scrollable">
+                    <tr>
+                        <th>要素・属性</th>
+                        <th>初期値</th>
+                        <th>内容</th>
+                    </tr>
+                    <tr>
+                        <td>Vibrate</td>
+                        <td>false</td>
+                        <td>このグループのストラクチャーを、自列車の揺れに合わせて振動させるか。<span class="wbr"><br /></span><code>true</code>で振動させる、<code>false</code>で振動させない</td>
+                    </tr>
+                    <tr>
+                        <td>Structure<span class="wbr"><br /></span>→Model</td>
+                        <td>-</td>
+                        <td>他列車ストラクチャーとして使用する3Dモデルの相対パス</td>
+                    </tr>
+                    <tr>
+                        <td>Structure<span class="wbr"><br /></span>→Distance</td>
+                        <td>0</td>
+                        <td>他列車ファイルの同名キーに対応。<span class="wbr"><br /></span>他列車原点から後側軌道交点（台車中心など）までの距離 [m]</td>
+                    </tr>
+                    <tr>
+                        <td>Structure<span class="wbr"><br /></span>→Span</td>
+                        <td>0</td>
+                        <td>他列車ファイルの同名キーに対応。<span class="wbr"><br /></span>後側軌道交点と前側軌道交点の間の距離 [m]</td>
+                    </tr>
+                    <tr>
+                        <td>Structure<span class="wbr"><br /></span>→Z</td>
+                        <td>0</td>
+                        <td>他列車ファイルの同名キーに対応。<span class="wbr"><br /></span>後側軌道交点からストラクチャー原点までのZ座標 [m]</td>
+                    </tr>
+                </table>
+
+                <div class="note note-info">
+                    他列車ファイルの文法については、<a href="https://bvets.net/jp/edit/formats/" target="_blank">BVE公式のリファレンス</a>も参考にしてください。
+                </div>
+            </section>
+        </div>
+        <section>
+            <h2>ライセンス</h2>
+            <p>
+                本ソフトウェアは、<a href="https://github.com/automatic9045/AtsEx.Plugins.VehicleStructure/blob/main/LICENSE.txt">The MIT License modified with Commons Clause v1.0</a>のもとで使用を許諾されています。
+            </p>
+
+            <h3>ライセンスの要約</h3>
+            <div class="note note-warn">
+                <p>
+                    以下の要約は正確な表現ではありません。
+                    正式な文面はGitHub リポジトリの<a href="https://github.com/automatic9045/AtsEx.Plugins.VehicleStructure/blob/main/LICENSE.txt">LICENSE.txt</a>を参照してください。
+                </p>
+            </div>
+            <p>
+                <ul>
+                    <li>原則として本ソフトウェアは自由に改変・使用することができます。</li>
+                    <li>ただし、本ソフトウェアを販売することはできません。</li>
+                    <li>また、本ソフトウェアを使った作品には、本ソフトウェアを使用している旨の著作権表示が必要です。</li>
+                    <li>本ソフトウェアを使用したことにより何かしらの損害を受けたとしても、作者は一切の責任を負わないものとします。</li>
+                </ul>
+            </p>
+
+            <h2>ダウンロード</h2>
+            <p class="center">
+                <a href="../AtsEX.Docs.Plugins/mirror/">ミラープラグイン</a>に同梱しています。
+            </p>
+        </section>
+
+        <script>hljs.highlightAll();</script>
+    </div>
+    <footer class="footer">
+        <script>includeByClasses("footer.html", "footer", 0);</script>
+    </footer>
+</body>
+</html>
