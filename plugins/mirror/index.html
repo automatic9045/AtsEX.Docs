@@ -35,7 +35,7 @@
     </header>
     <div id="content">
         <div class="subheader-image">
-            <img src="../AtsEX.Docs.Plugins/mirror/header.jpg" />
+            <img src="../AtsEX.Docs/plugins/mirror/header.jpg" />
             <span>Mirror Plugin</span>
         </div>
         <section class="title-with-description">
@@ -62,7 +62,7 @@
                     下のボタンよりダウンロードしたファイルを<strong>ゾーン識別子を削除した上で</strong>解凍し、マップファイル（Map.txtなど）に対する位置関係が次の画像のようになるように配置します。
                 </p>
                 <p>
-                    <img src="../AtsEX.Docs.Plugins/mirror/locating.png" />
+                    <img src="../AtsEX.Docs/plugins/mirror/locating.png" />
                 </p>
 
                 <h4>1-2. マップファイルにプラグインリストを指定する</h4>
@@ -70,7 +70,7 @@
                     マップファイルを開き、次の例のように冒頭へ <code>AtsEx::USEATSEX</code> ヘッダー（または <code>AtsEx::NOMPI</code> ヘッダーでも可）、<code>AtsEx::MapPluginUsing</code> ヘッダーを追記します。
                 </p>
                 <pre><code id="map-sample" class="language-csharp"></code></pre>
-                <script>includeById("../AtsEX.Docs.Plugins/mirror/map-sample.txt", "map-sample");</script>
+                <script>includeById("../AtsEX.Docs/plugins/mirror/map-sample.txt", "map-sample");</script>
 
                 <div class="note note-warn">
                     <h4>ゾーン識別子の削除を忘れずに！</h4>
@@ -106,8 +106,8 @@
                     </li>
                 </ul>
                 <p>
-                    <img class="two-contents" src="../AtsEX.Docs.Plugins/mirror/structure-lh.png" />
-                    <img class="two-contents" src="../AtsEX.Docs.Plugins/mirror/structure-rh.png" />
+                    <img class="two-contents" src="../AtsEX.Docs/plugins/mirror/structure-lh.png" />
+                    <img class="two-contents" src="../AtsEX.Docs/plugins/mirror/structure-rh.png" />
                 </p>
                 <p>
                     以上の要求仕様に則って作成したストラクチャーをそのまま設置すると、上の画像1枚目のように進行方向真逆を向いてしまうので、基本的にY軸まわりに180°ほど回転させて設置することとなります。
@@ -117,7 +117,7 @@
                     下の画像のミラーは、こちらの構文で設置しています。
                 </p>
                 <p>
-                    <img class="small" src="../AtsEX.Docs.Plugins/mirror/structure-sample.png" />
+                    <img class="small" src="../AtsEX.Docs/plugins/mirror/structure-sample.png" />
                 </p>
 
                 <h3>3. ストラクチャーの情報を設定ファイルに記述する</h3>
@@ -129,7 +129,7 @@
                 <h2>設定ファイルの文法</h2>
                 <h3 class="header-accent">コードの例</h3>
                 <pre><code id="config-sample" class="language-xml"></code></pre>
-                <script>includeById("../AtsEX.Docs.Plugins/mirror/config-sample.txt", "config-sample");</script>
+                <script>includeById("../AtsEX.Docs/plugins/mirror/config-sample.txt", "config-sample");</script>
 
                 <h3 class="header-accent">各要素・属性の解説</h3>
                 <table class="with-border scrollable">
