@@ -1,7 +1,7 @@
 ﻿&lt;?xml version="1.0" encoding="utf-8"?>
 &lt;Config xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   &lt;MirrorStructures>
-    &lt;MirrorStructure Key="Mirror1" TextureFileName="foo.png" TextureWidth="512" TextureHeight="512" Zoom="0.8" />
+    &lt;MirrorStructure Key="Mirror1" TextureFileName="foo.png" TextureWidth="512" TextureHeight="512" Zoom="0.8" BackDrawDistance="25" FrontDrawDistance="400" MaxFps="60" />
     &lt;MirrorStructure Key="Mirror2" TextureFileName="bar.png" TextureWidth="400" TextureHeight="300" />
   &lt;/MirrorStructures>
 &lt;/Config>
