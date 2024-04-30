@@ -1,0 +1,10 @@
+﻿&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;Config xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  &lt;Version>0.0&lt;/Version>
+  &lt;ThemeColor>#0000A0&lt;/ThemeColor>
+  &lt;DownloadUrl>https://www.example.com/download/&lt;/DownloadUrl>
+  &lt;Source>
+    &lt;HttpRequest VersionUrl="https://www.example.com/version.txt" UpdateInfoUrl="https://www.example.com/update-info.md" />
+    &lt;!--または &lt;GitHubRepository Owner="所有者名" Name="リポジトリ名" />-->
+  &lt;/Source>
+&lt;/Config>

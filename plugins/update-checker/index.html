@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no,address=no,email=no" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0" />
+    <meta name="theme-color" content="#fff" />
+
+    <meta name="author" content="automatic9045" />
+    <meta property="og:site_name" content="UpdateChecker - AtsEX - 岡オカ営業所" />
+    <meta property="og:title" content="UpdateChecker - AtsEX - 岡オカ営業所" />
+    <meta property="og:description" content="車両・路線データのアップデート情報を受信できるようにするプラグインです。AtsEX車両プラグイン、またはマッププラグインとして使用可能です。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://www.okaoka-depot.com/AtsEX/img/ogp.png" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@atF9045" />
+
+    <title>UpdateChecker - AtsEX - 岡オカ営業所</title>
+    <base href="https://www.okaoka-depot.com/AtsEX/" />
+    <link rel="icon" type="image/svg+xml" href="../img/bus.svg">
+    <link rel="apple-touch-icon" type="image/png" href="../img/bus.png">
+    <link rel="stylesheet" type="text/css" href="css/basic.css" />
+    <link rel="stylesheet" type="text/css" href="css/header.css" />
+    <link rel="stylesheet" type="text/css" href="css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="copyright/highlight/vs2015.min.css">
+    <script type="text/javascript" src="../js/busses.js"></script>
+    <script type="text/javascript" src="js/basic.js"></script>
+    <script type="text/javascript" src="js/copyright.js"></script>
+    <script type="text/javascript" src="js/sns.js"></script>
+    <script type="text/javascript" src="copyright/highlight/highlight.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <script>includeByClasses("header.html", "header", 0);</script>
+    </header>
+    <div id="content">
+        <div class="subheader-image top">
+            <img src="../AtsEX.Docs/plugins/update-checker/header.jpg" />
+            <span>UpdateChecker</span>
+        </div>
+        <section class="title-with-description">
+            <h1>UpdateChecker</h1>
+            <p>
+                車両・路線データのアップデート情報を受信できるようにするプラグインです。<br />
+                <strong>AtsEX車両プラグイン、またはマッププラグイン</strong>として使用可能です。
+            </p>
+        </section>
+        <section>
+            <h2>プラグインの特長</h2>
+            <p>
+                シナリオ読込と同時にデータが最新版であるかどうかを確認し、アップデートが配信されている場合はその詳細を通知します。
+                <mark>せっかくデータを更新したのに、ユーザーに気付いてもらえない……</mark>というリスクを極限まで減らすことができます。
+            </p>
+            <p>
+                アップデート情報の配信元としては、WebサーバーのURLを直接指定する方法の他、GitHub上にアップされたリポジトリと同期することも可能です。
+            </p>
+        </section>
+        <div class="white-space"></div>
+        <div class="gray">
+            <section>
+                <h2>プラグインを組み込む手順</h2>
+                <h3>1a. 【車両データに組み込む場合】プラグインを車両に配置する</h3>
+                <p>
+                    下のボタンよりダウンロードしたファイルを<strong>ゾーン識別子を削除した上で</strong>解凍し、車両ファイル（Vehicle.txtなど）に対する位置関係が次の画像のようになるように配置します。
+                </p>
+                <p>
+                    <img src="../AtsEX.Docs/plugins/update-checker/locating.png" />
+                </p>
+                <div class="note note-warn">
+                    <h4>ゾーン識別子の削除を忘れずに！</h4>
+                    <p>
+                        この手順を飛ばしたままパッケージを解凍してしまうと、不可解なエラーの原因となる場合があります。<br />
+                        そのままパッケージを解凍し、プラグインを配置してしまった場合は、ゾーン識別子を削除した上でもう一度解凍からやり直してください。
+                    </p>
+                    <p>
+                        ゾーン識別子を削除する方法については、<a href="download/installation-guide/other.html">手動でのパッケージの適用方法 - AtsEXインストールガイド</a>の「1-1. ゾーン識別子を削除する」をご参照ください。
+                    </p>
+                </div>
+                <div class="note note-info">
+                    <h4>既にVehiclePluginUsing.xmlなどのAtsEX車両プラグインリストファイルが存在する場合</h4>
+                    <p>
+                        本プラグインに同梱のVehiclePluginUsing.xmlは使用せず、既存のプラグインリストファイルに以下のコードを追記してください。
+                    </p>
+                    <pre><code class="language-xml">&lt;Assembly Path="AtsExPlugins\UpdateChecker.dll" /></code></pre>
+                </div>
+
+                <h3>1b. 【路線データに組み込む場合】プラグインをマップに配置する</h3>
+                <h4>1b-1. プラグインリストファイルを配置する</h4>
+                <p>
+                    下のボタンよりダウンロードしたファイルを<strong>ゾーン識別子を削除した上で</strong>解凍し、マップファイル（Map.txtなど）に対する位置関係が次の画像のようになるように配置します。
+                </p>
+                <p>
+                    <img src="../AtsEX.Docs/plugins/mirror/locating.png" />
+                </p>
+
+                <h4>1b-2. マップファイルにプラグインリストを指定する</h4>
+                <p>
+                    マップファイルを開き、次の例のように冒頭へ <code>AtsEx::USEATSEX</code> ヘッダー（または <code>AtsEx::NOMPI</code> ヘッダーでも可）、<code>AtsEx::MapPluginUsing</code> ヘッダーを追記します。
+                </p>
+                <pre><code id="map-sample" class="language-csharp"></code></pre>
+                <script>includeById("../AtsEX.Docs/plugins/mirror/map-sample.txt", "map-sample");</script>
+
+                <div class="note note-warn">
+                    <h4>ゾーン識別子の削除を忘れずに！</h4>
+                    <p>
+                        この手順を飛ばしたままパッケージを解凍してしまうと、不可解なエラーの原因となる場合があります。<br />
+                        そのままパッケージを解凍し、プラグインを配置してしまった場合は、ゾーン識別子を削除した上でもう一度解凍からやり直してください。
+                    </p>
+                    <p>
+                        ゾーン識別子を削除する方法については、<a href="download/installation-guide/other.html">手動でのパッケージの適用方法 - AtsEXインストールガイド</a>の「1-1. ゾーン識別子を削除する」をご参照ください。
+                    </p>
+                </div>
+                <div class="note note-info">
+                    <h4>既にMapPluginUsing.xmlなどのAtsEXマッププラグインリストファイルが存在する場合</h4>
+                    <p>
+                        本プラグインに同梱のMapPluginUsing.xmlは使用せず、既存のプラグインリストファイルに以下のコードを追記してください。
+                    </p>
+                    <pre><code class="language-xml">&lt;Assembly Path="MapPlugins\UpdateChecker.dll" /></code></pre>
+                </div>
+
+                <h3>2. 各種情報を設定ファイルに記述する</h3>
+                <p>
+                    アップデート情報の配信元などの情報をUpdateChecker.Config.xmlに記述します。<br />
+                    設定ファイルの文法は以下を参照してください。
+                </p>
+
+                <h2>設定ファイルの文法</h2>
+                <h3 class="header-accent">コードの例</h3>
+                <pre><code id="config-sample" class="language-xml"></code></pre>
+                <script>includeById("../AtsEX.Docs/plugins/update-checker/config-sample.txt", "config-sample");</script>
+
+                <h3 class="header-accent">各要素・属性の解説</h3>
+                <table class="with-border scrollable">
+                    <tr>
+                        <th>要素・属性</th>
+                        <th>初期値</th>
+                        <th>内容</th>
+                    </tr>
+                    <tr>
+                        <td>Version</td>
+                        <td>0.0</td>
+                        <td>
+                            このデータのバージョン。<span class="wbr"><br /></span>
+                            <code>x.x</code>、<code>x.x.x</code>、<code>x.x.x.x</code>のいずれかのフォーマットで指定<span class="wbr"><br /></span>
+                            （例：<code>2.1</code>、<code>1.13.8302.17460</code>）
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>ThemeColor</td>
+                        <td>#0000A0</td>
+                        <td>
+                            アップデート情報ダイアログのヘッダー部分の背景色。<span class="wbr"><br /></span>以下のいずれかで指定
+                            <ul>
+                                <li>RGB値（例：<code>#FF0000</code>、<code>#f00</code>）</li>
+                                <li>ARGB値（Aは指定されていても無視。例：<code>#ff00a000</code>、<code>#F008</code>）</li>
+                                <li>
+                                    <a href="https://learn.microsoft.com/ja-jp/dotnet/api/system.drawing.knowncolor?view=netframework-4.8">システムカラー</a>として認識されている色名
+                                    （例：<code>Red</code>、<code>White</code>）
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>DownloadUrl</td>
+                        <td><a href="https://automatic9045.github.io/AtsEx.Plugins.UpdateChecker/">サンプルURL</a></td>
+                        <td>アップデート情報ダイアログで［ダウンロードページへ］ボタンが押されたときに表示するURL</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Source（要素）</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">├ HttpRequest（要素）</td>
+                        <td>HttpRequestとGitHubRepositoryのいずれか1つを定義</td>
+                    </tr>
+                    <tr>
+                        <td>│├ VersionUrl</td>
+                        <td><a href="https://automatic9045.github.io/AtsEx.Plugins.UpdateChecker/version.txt">サンプルURL</a></td>
+                        <td>最新バージョンをテキスト形式で返すURL</td>
+                    </tr>
+                    <tr>
+                        <td>│└ UpdateInfoUrl</td>
+                        <td><a href="https://automatic9045.github.io/AtsEx.Plugins.UpdateChecker/update-info.md">サンプルURL</a></td>
+                        <td>アップデートの詳細情報をMarkdown形式で返すURL</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">└ GitHubRepository（要素）</td>
+                        <td>HttpRequestとGitHubRepositoryのいずれか1つを定義</td>
+                    </tr>
+                    <tr>
+                        <td>　├ Owner</td>
+                        <td>-</td>
+                        <td>リポジトリの所有者名（例：<code>automatic9045</code>）</td>
+                    </tr>
+                    <tr>
+                        <td>　└ Name</td>
+                        <td>-</td>
+                        <td>リポジトリ名（例：<code>AtsEX</code>）</td>
+                    </tr>
+                </table>
+            </section>
+            <div class="white-space"></div>
+        </div>
+        <section>
+            <h2>ダウンロード</h2>
+            <p class="center">
+                <a class="button with-border white-when-hover" href="https://github.com/automatic9045/AtsEx.Plugins.UpdateChecker/releases/">
+                    GitHubからダウンロード▶
+                </a>
+            </p>
+        </section>
+
+        <script>hljs.highlightAll();</script>
+    </div>
+    <footer class="footer">
+        <script>includeByClasses("footer.html", "footer", 0);</script>
+    </footer>
+</body>
+</html>
