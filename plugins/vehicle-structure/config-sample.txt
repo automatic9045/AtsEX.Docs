@@ -10,7 +10,7 @@
           &lt;Structure Model="VehicleModels\TcTop_Chassis.x" Distance="-77" Span="12" Z="17" />
         &lt;/Structures>
       &lt;/StructureGroup>
-      &lt;StructureGroup Vibrate="true">
+      &lt;StructureGroup Vibrate="true" FirstStructureFront="0">
         &lt;Structures>
           &lt;Structure Model="VehicleModels\TcEnd_Body.x" Distance="-17" Span="12" Z="17" />
           &lt;Structure Model="VehicleModels\M1_Body.x" Distance="-37" Span="12" Z="17" />
