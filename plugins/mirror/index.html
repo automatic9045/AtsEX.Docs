@@ -11,13 +11,13 @@
     <meta property="og:title" content="ミラープラグイン - AtsEX - 岡オカ営業所" />
     <meta property="og:description" content="マップ上に、実際の景色が映るミラーを設置するプラグインです。AtsEXマッププラグインとして実装されています。" />
     <meta property="og:type" content="article" />
-    <meta property="og:image" content="https://www.okaoka-depot.com/AtsEX/img/ogp.png" />
+    <meta property="og:image" content="https://www.okaoka-depot.com/AtsEX.Docs/img/ogp.png" />
     <meta property="og:locale" content="ja_JP" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@atF9045" />
 
     <title>ミラープラグイン - AtsEX - 岡オカ営業所</title>
-    <base href="https://www.okaoka-depot.com/AtsEX/" />
+    <base href="https://www.okaoka-depot.com/AtsEX.Docs/" />
     <link rel="icon" type="image/svg+xml" href="../img/bus.svg">
     <link rel="apple-touch-icon" type="image/png" href="../img/bus.png">
     <link rel="stylesheet" type="text/css" href="css/basic.css" />
@@ -36,7 +36,7 @@
     </header>
     <div id="content">
         <div class="subheader-image">
-            <img src="../AtsEX.Docs/plugins/mirror/header.jpg" />
+            <img src="plugins/mirror/header.jpg" />
             <span>Mirror Plugin</span>
         </div>
         <section class="title-with-description">
@@ -63,7 +63,7 @@
                     下のボタンよりダウンロードしたファイルを<strong>ゾーン識別子を削除した上で</strong>解凍し、マップファイル（Map.txtなど）に対する位置関係が次の画像のようになるように配置します。
                 </p>
                 <p>
-                    <img src="../AtsEX.Docs/plugins/mirror/locating.png" />
+                    <img src="plugins/mirror/locating.png" />
                 </p>
 
                 <h4>1-2. マップファイルにプラグインリストを指定する</h4>
@@ -71,7 +71,7 @@
                     マップファイルを開き、次の例のように冒頭へ <code>AtsEx::USEATSEX</code> ヘッダー（または <code>AtsEx::NOMPI</code> ヘッダーでも可）、<code>AtsEx::MapPluginUsing</code> ヘッダーを追記します。
                 </p>
                 <pre><code id="map-sample" class="language-csharp"></code></pre>
-                <script>includeById("../AtsEX.Docs/plugins/mirror/map-sample.txt", "map-sample");</script>
+                <script>includeById("plugins/mirror/map-sample.txt", "map-sample");</script>
 
                 <div class="note note-warn">
                     <h4>ゾーン識別子の削除を忘れずに！</h4>
@@ -107,8 +107,8 @@
                     </li>
                 </ul>
                 <p>
-                    <img class="two-contents" src="../AtsEX.Docs/plugins/mirror/structure-lh.png" />
-                    <img class="two-contents" src="../AtsEX.Docs/plugins/mirror/structure-rh.png" />
+                    <img class="two-contents" src="plugins/mirror/structure-lh.png" />
+                    <img class="two-contents" src="plugins/mirror/structure-rh.png" />
                 </p>
                 <p>
                     以上の要求仕様に則って作成したストラクチャーをそのまま設置すると、上の画像1枚目のように進行方向真逆を向いてしまうので、基本的にY軸まわりに180°ほど回転させて設置することとなります。
@@ -118,7 +118,7 @@
                     下の画像のミラーは、こちらの構文で設置しています。
                 </p>
                 <p>
-                    <img class="small" src="../AtsEX.Docs/plugins/mirror/structure-sample.png" />
+                    <img class="small" src="plugins/mirror/structure-sample.png" />
                 </p>
 
                 <h3>3. ストラクチャーの情報を設定ファイルに記述する</h3>
@@ -130,7 +130,7 @@
                 <h2>設定ファイルの文法</h2>
                 <h3 class="header-accent">コードの例</h3>
                 <pre><code id="config-sample" class="language-xml"></code></pre>
-                <script>includeById("../AtsEX.Docs/plugins/mirror/config-sample.txt", "config-sample");</script>
+                <script>includeById("plugins/mirror/config-sample.txt", "config-sample");</script>
 
                 <h3 class="header-accent">各要素・属性の解説</h3>
                 <table class="with-border scrollable">

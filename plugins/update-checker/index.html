@@ -11,13 +11,13 @@
     <meta property="og:title" content="UpdateChecker - AtsEX - 岡オカ営業所" />
     <meta property="og:description" content="車両・路線データのアップデート情報を受信できるようにするプラグインです。AtsEX車両プラグイン、またはマッププラグインとして使用可能です。" />
     <meta property="og:type" content="article" />
-    <meta property="og:image" content="https://www.okaoka-depot.com/AtsEX/img/ogp.png" />
+    <meta property="og:image" content="https://www.okaoka-depot.com/AtsEX.Docs/img/ogp.png" />
     <meta property="og:locale" content="ja_JP" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@atF9045" />
 
     <title>UpdateChecker - AtsEX - 岡オカ営業所</title>
-    <base href="https://www.okaoka-depot.com/AtsEX/" />
+    <base href="https://www.okaoka-depot.com/AtsEX.Docs/" />
     <link rel="icon" type="image/svg+xml" href="../img/bus.svg">
     <link rel="apple-touch-icon" type="image/png" href="../img/bus.png">
     <link rel="stylesheet" type="text/css" href="css/basic.css" />
@@ -36,7 +36,7 @@
     </header>
     <div id="content">
         <div class="subheader-image top">
-            <img src="../AtsEX.Docs/plugins/update-checker/header.jpg" />
+            <img src="plugins/update-checker/header.jpg" />
             <span>UpdateChecker</span>
         </div>
         <section class="title-with-description">
@@ -65,7 +65,7 @@
                     下のボタンよりダウンロードしたファイルを<strong>ゾーン識別子を削除した上で</strong>解凍し、車両ファイル（Vehicle.txtなど）に対する位置関係が次の画像のようになるように配置します。
                 </p>
                 <p>
-                    <img src="../AtsEX.Docs/plugins/update-checker/locating.png" />
+                    <img src="plugins/update-checker/locating.png" />
                 </p>
                 <div class="note note-warn">
                     <h4>ゾーン識別子の削除を忘れずに！</h4>
@@ -91,7 +91,7 @@
                     下のボタンよりダウンロードしたファイルを<strong>ゾーン識別子を削除した上で</strong>解凍し、マップファイル（Map.txtなど）に対する位置関係が次の画像のようになるように配置します。
                 </p>
                 <p>
-                    <img src="../AtsEX.Docs/plugins/mirror/locating.png" />
+                    <img src="plugins/mirror/locating.png" />
                 </p>
 
                 <h4>1b-2. マップファイルにプラグインリストを指定する</h4>
@@ -99,7 +99,7 @@
                     マップファイルを開き、次の例のように冒頭へ <code>AtsEx::USEATSEX</code> ヘッダー（または <code>AtsEx::NOMPI</code> ヘッダーでも可）、<code>AtsEx::MapPluginUsing</code> ヘッダーを追記します。
                 </p>
                 <pre><code id="map-sample" class="language-csharp"></code></pre>
-                <script>includeById("../AtsEX.Docs/plugins/mirror/map-sample.txt", "map-sample");</script>
+                <script>includeById("plugins/mirror/map-sample.txt", "map-sample");</script>
 
                 <div class="note note-warn">
                     <h4>ゾーン識別子の削除を忘れずに！</h4>
@@ -128,7 +128,7 @@
                 <h2>設定ファイルの文法</h2>
                 <h3 class="header-accent">コードの例</h3>
                 <pre><code id="config-sample" class="language-xml"></code></pre>
-                <script>includeById("../AtsEX.Docs/plugins/update-checker/config-sample.txt", "config-sample");</script>
+                <script>includeById("plugins/update-checker/config-sample.txt", "config-sample");</script>
 
                 <h3 class="header-accent">各要素・属性の解説</h3>
                 <table class="with-border scrollable">
