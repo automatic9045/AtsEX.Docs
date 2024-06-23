@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no,address=no,email=no" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0" />
+    <meta name="theme-color" content="#fff" />
+
+    <meta name="author" content="automatic9045" />
+    <meta property="og:site_name" content="エラーコード一覧 - AtsEX - 岡オカ営業所" />
+    <meta property="og:title" content="エラーコード一覧 - AtsEX - 岡オカ営業所" />
+    <meta property="og:description" content="AtsEXの実行中、エラーが表示されることがあります。このページではAtsEX本体のよくあるエラー（エラーコードの表示があるエラー）と、その詳細について説明しています。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://www.okaoka-depot.com/AtsEX/img/ogp.png" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@atF9045" />
+
+    <title>エラーコード一覧 - AtsEX - 岡オカ営業所</title>
+    <base href="https://www.okaoka-depot.com/AtsEX.Docs/" />
+    <link rel="icon" type="image/svg+xml" href="../img/bus.svg">
+    <link rel="apple-touch-icon" type="image/png" href="../img/bus.png">
+    <link rel="stylesheet" type="text/css" href="css/basic.css" />
+    <link rel="stylesheet" type="text/css" href="css/header.css" />
+    <link rel="stylesheet" type="text/css" href="css/footer.css" />
+    <script type="text/javascript" src="../js/busses.js"></script>
+    <script type="text/javascript" src="js/basic.js"></script>
+    <script type="text/javascript" src="js/copyright.js"></script>
+    <script type="text/javascript" src="js/sns.js"></script>
+</head>
+<body>
+    <header class="header">
+        <script>includeByClasses("header.html", "header", 0);</script>
+    </header>
+    <div id="content">
+        <div class="title-accent">Error Codes</div>
+        <section class="title-with-description">
+            <h1>エラーコード一覧</h1>
+            <p>
+                AtsEXの実行中、エラーが表示されることがあります。<br />
+                このページではAtsEX本体のよくあるエラー（エラーコードの表示があるエラー）と、その詳細について説明しています。
+            </p>
+            <div class="note note-info">
+                <h4>エラーコードの表示がない場合</h4>
+                <p>
+                    以下の可能性が考えられます。
+                </p>
+                <ul>
+                    <li>
+                        <strong>AtsEXのバージョンが古い</strong>
+                        － エラーコードはAtsEX ver1.0-RC8（v1.0.40401.1）以降でのみ表示されます。AtsEXを最新版に更新してください。
+                    </li>
+                    <li>
+                        <strong>AtsEX本体が表示したエラーではない</strong>
+                        － AtsEX本体ではなく、プラグインから発生しているエラーの可能性があります。個々のプラグインに由来するエラーについては、当ページでは説明していません。
+                    </li>
+                    <li>
+                        <strong>エラーコード非対応のエラーである</strong>
+                        － 以上の手順を全て行ってもエラーコードが表示されない場合は、一般的ではないエラーであるなどの可能性が考えられます。
+                        こういったエラーについては基本的に当ページでは説明していませんが、同一文面のエラーが掲載されていることもあるので、一読されることをお勧めします。
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <div class="white-space"></div>
+        <div class="gray">
+            <section>
+                <h2>INDEX</h2>
+                <h3>【CA-】AtsEX Caller ATSプラグイン版</h3>
+                <ul>
+                    <li><a href="support/errors/#CA-1">CA-1：AtsEX を読み込めませんでした。AtsEX がインストールされているか・入力デバイスの一覧でチェックが付いているか・パスの指定が誤っていないか ご確認ください。</a></li>
+                    <li><a href="support/errors/#CA-2">CA-2：読み込まれた AtsEX Caller (バージョン x.x.x.x) は現在の AtsEX ではサポートされていません。</a></li>
+                </ul>
+
+                <h3>【CI-】AtsEX Caller 入力デバイスプラグイン版</h3>
+                <ul>
+                    <li><a href="support/errors/#CI-1">CI-1：AtsEX Launcher が見つかりません。指定された場所: ～</a></li>
+                </ul>
+
+                <h3>【L-】AtsEX Launcher</h3>
+                <ul>
+                    <li><a href="support/errors/#L-1">L-1：BVE 本体の読込に失敗しました。Assembly.GetEntryAssembly が null を返しました。</a></li>
+                    <li><a href="support/errors/#L-2">L-2：同一プロセス上に BVE 本体が見つかりませんでした。</a></li>
+                    <li><a href="support/errors/#L-3">L-3：AtsEX 本体の読込に失敗しました。フォルダ '～' が見つかりませんでした。</a></li>
+                    <li><a href="support/errors/#L-4">L-4：AtsEX 本体の読込に失敗しました。候補となる AtsEX 本体フォルダが見つかりませんでした。</a></li>
+                </ul>
+
+                <h3>【E-】AtsEX</h3>
+                <ul>
+                    <li><a href="support/errors/#E-1">E-1：AtsEX のメインアセンブリの配置先 '～' は不正です。</a></li>
+                    <li><a href="support/errors/#E-2">E-2：読み込まれた AtsEX Caller (バージョン x.x.x.x) は現在の AtsEX ではサポートされていません。beta0.16 (バージョン 0.16) 以降の AtsEX Caller をご利用ください。</a></li>
+                    <li><a href="support/errors/#E-3">E-3：BveTypeSet の読込に失敗しました。複数の SlimDX.dll が読み込まれていることが原因の可能性があります。</a></li>
+                    <li><a href="support/errors/#E-4">E-4：AtsEX 入力デバイスプラグイン版の有効化に失敗しました。AtsEX を正常に実行するには、BVE を再起動してください。</a></li>
+                </ul>
+            </section>
+            <div class="white-space"></div>
+        </div>
+        <section>
+            <h2>【CA-】AtsEX Caller ATSプラグイン版</h2>
+            <h3 id="CA-1">CA-1：AtsEX を読み込めませんでした。AtsEX がインストールされているか・入力デバイスの一覧でチェックが付いているか・パスの指定が誤っていないか ご確認ください。</h3>
+            <p>
+                AtsEX Caller ATSプラグイン版がAtsEX Launcher（AtsEx.Launcher.dll）を見つけられなかった場合に発生します。<br />
+                ATSプラグイン版で参照されるAtsEX Launcherのパスは<code>Scenarios\AtsEx\AtsEx.Launcher.dll</code>です。
+            </p>
+            <div class="note note-warn">
+                <h4>結果的にこのエラーが表示されているだけで、根本原因でない場合があります</h4>
+                <p>
+                    以下がよくあるケースです。
+                    <ul>
+                        <li>AtsEX 入力デバイスプラグイン版を有効化（入力デバイス一覧から「AtsEX」にチェックを付ける）し忘れている</li>
+                        <li>
+                            AtsEX 入力デバイスプラグイン版の<code>AtsEx.Caller.InputDevice.txt</code>に設定されているパスが誤っている
+                            （詳細は <a href="support/errors/#CI-1">CI-1：AtsEX Launcher が見つかりません。指定された場所: ～</a> を参照）
+                        </li>
+                    </ul>
+                </p>
+            </div>
+
+            <h3 id="CA-2">CA-2：読み込まれた AtsEX Caller (バージョン x.x.x.x) は現在の AtsEX ではサポートされていません。</h3>
+            <p>
+                AtsEX Callerのバージョンが古く、併用しようとしたAtsEX本体（厳密にはAtsEX Launcher）との互換性が無い場合に発生します。
+            </p>
+            <div class="note note-info">
+                <p>
+                    以下の表において、異なる「互換性バージョン」のAtsEX CallerとAtsEX本体を併用することはできません。<br />
+                    例えば、β0.18.1のAtsEX Callerとver1.0-RC7のAtsEX本体を併用することはできますが、β0.17.5のAtsEX Callerとβ0.16のAtsEX本体を併用することはできません。
+                </p>
+                <table class="with-border">
+                    <tr><th>互換性バージョン</th><th>DLLに表示している<span class="wbr"><br /></span>バージョン</th></tr>
+                    <tr><td colspan="2">（α0.1～α0.5・β0.6～β0.15は、<span class="wbr"><br /></span>互換性チェック機能が未実装）</td></tr>
+                    <tr><td>1</td><td>β0.16～β0.16.2</td></tr>
+                    <tr><td>2</td><td>β0.17～β0.17.7</td></tr>
+                    <tr><td>3</td><td>β0.18～β0.18.2<br />β0.19<br />ver1.0-RC1～</td></tr>
+                </table>
+            </div>
+
+            <h2>【CI-】AtsEX Caller 入力デバイスプラグイン版</h2>
+            <h3 id="CI-1">CI-1：AtsEX Launcher が見つかりません。指定された場所: ～</h3>
+            <p>
+                AtsEX Caller 入力デバイスプラグイン版が、所定のフォルダ内にてAtsEX Launcher（AtsEx.Launcher.dll）を見つけられなかった場合に発生します。
+            </p>
+            <div class="note note-info">
+                <h4>AtsEX Caller 入力デバイスプラグイン版がAtsEX Launcherを検索する方法</h4>
+                <p>
+                    Callerの配置先を<code>C:\Program Files\mackoy\BveTs\Input Devices\AtsEx.Caller.InputDevice.dll</code>とすると、Launcherの配置先は以下のように検索されます。
+                    <ul>
+                        <li>原則、<code>～\Input Devices\AtsEx\AtsEx.Launcher.dll</code></li>
+                        <li>
+                            ただし<code>～\Input Devices\AtsEx.Caller.InputDevice.txt</code>が存在する場合は、その内容を配置先フォルダのパスとして参照します。
+                            例えば、<code>C:\XXX\YYY\AtsEx\</code>と設定すると、<code>C:\XXX\YYY\AtsEx\AtsEx.Launcher.dll</code>がLauncherの配置先として使用されます。
+                        </li>
+                    </ul>
+                </p>
+            </div>
+
+            <h2>【L-】AtsEX Launcher</h2>
+            <h3 id="L-1">L-1：BVE 本体の読込に失敗しました。Assembly.GetEntryAssembly が null を返しました。</h3>
+            <p>
+                特殊な方法でBVEを起動した場合に発生します。通常の使用方法でこのエラーが表示されることはありません。
+            </p>
+            <div class="note note-info">
+                <h4>開発者向け技術情報</h4>
+                <p>
+                    AtsEXはAssembly.GetEntryAssemblyメソッドによってBVE本体のアセンブリを取得する仕様となっていますが、何らかの理由で同メソッドがnullを返した場合にこのエラーが発生します。<br />
+                    以下のような原因が考えられます。
+                    <ul>
+                        <li>アンマネージド コードからBVE・AtsEXを実行した</li>
+                        <li>BVE本体とは別のAppDomainを作成し、その中でAtsEXを実行した</li>
+                    </ul>
+                </p>
+            </div>
+
+            <h3 id="L-2">L-2：同一プロセス上に BVE 本体が見つかりませんでした。</h3>
+            <p>
+                特殊な方法でBVEを起動した場合に発生します。通常の使用方法でこのエラーが表示されることはありません。
+            </p>
+            <div class="note note-info">
+                <h4>開発者向け技術情報</h4>
+                <p>
+                    AtsEXはAssembly.GetEntryAssemblyメソッドによってBVE本体のアセンブリを取得する仕様となっていますが、これによって得られたアセンブリがBVE本体のものではなかった場合にこのエラーが発生します。<br />
+                    以下のような原因が考えられます。
+                    <ul>
+                        <li>
+                            独自のアセンブリXからBVE本体（BveTs.exe）を参照し、コードを通じてメインフォームを読み込んだ
+                            <ul>
+                                <li>この場合、Assembly.GetEntryAssemblyメソッドがBVE本体ではなくXを返してしまうため、このエラーが発生します。</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </p>
+            </div>
+
+            <h3 id="L-3">L-3：AtsEX 本体の読込に失敗しました。フォルダ '～' が見つかりませんでした。</h3>
+            <p>
+                AtsEX Launcherが、所定のAtsEX本体の配置先フォルダを見つけられなかった場合に発生します。<br />
+                一部ファイルを誤って削除してしまったなど、AtsEX本体が破損している可能性が考えられます。AtsEXの再インストールをご検討ください。
+            </p>
+            <div class="note note-info">
+                <h4>AtsEX LauncherがAtsEX本体の配置先を検索する方法</h4>
+                <p>
+                    入力デバイスプラグイン版の場合、Launcherの配置先を<code>C:\Users\Public\AtsEx\AtsEx.Launcher.dll</code>とすると、AtsEX本体の配置先は以下のように検索されます。
+                    <ul>
+                        <li>
+                            原則、<code>C:\Users\Public\AtsEx\(バージョン)\</code>
+                            <ul>
+                                <li>「(バージョン)」は、例えばβ0.19の場合は<code>0.19</code>、ver1.0（RC含む）の場合は<code>1.0</code>となります。</li>
+                            </ul>
+                        </li>
+                        <li>
+                            ただし、Launcherがデバッグビルドの場合は<code>C:\Users\Public\AtsEx\Debug\</code>
+                            <ul>
+                                <li>AtsEX<strong>本体の</strong>開発中に限り関係する条件です。通常の使用方法でこのフォルダが参照されることはありません。</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </p>
+            </div>
+
+            <h3 id="L-4">L-4：AtsEX 本体の読込に失敗しました。候補となる AtsEX 本体フォルダが見つかりませんでした。</h3>
+            <p>
+                <a href="support/errors/#L-3">L-3：AtsEX 本体の読込に失敗しました。フォルダ '～' が見つかりませんでした。</a> を参照
+            </p>
+
+            <h2>【E-】AtsEX</h2>
+            <h3 id="E-1">E-1：AtsEX のメインアセンブリの配置先 '～' は不正です。</h3>
+            <p>
+                （ATSプラグイン版のみ）AtsEX本体の配置先が<code>Scenarios\AtsEx\</code>以外である場合にこのエラーが発生します。
+            </p>
+
+            <h3 id="E-2">E-2：読み込まれた AtsEX Caller (バージョン x.x.x.x) は現在の AtsEX ではサポートされていません。beta0.16 (バージョン 0.16) 以降の AtsEX Caller をご利用ください。</h3>
+            <p>
+                <a href="support/errors/#CA-2">CA-2：読み込まれた AtsEX Caller (バージョン x.x.x.x) は現在の AtsEX ではサポートされていません。</a> を参照
+            </p>
+
+            <h3 id="E-3">E-3：BveTypeSet の読込に失敗しました。複数の SlimDX.dll が読み込まれていることが原因の可能性があります。</h3>
+            <p>
+                誤ったバージョンのSlimDXが読み込まれた場合に発生します。
+            </p>
+            <div class="note note-info">
+                <h4>参照するSlimDXのバージョンについて</h4>
+                <p>
+                    BVEはバージョンによって使用するSlimDXのバージョンが異なります。
+                </p>
+                <table class="with-border">
+                    <tr><th>BVEのバージョン</th><th>SlimDXのバージョン</th></tr>
+                    <tr><td>BVE Trainsim 5.8</td><td>SlimDX for .NET 2.0</td></tr>
+                    <tr><td>BVE Trainsim 6</td><td>SlimDX for .NET 4.0</td></tr>
+                </table>
+                <p>
+                    一方、AtsEXは常に<strong>SlimDX 4.0</strong>を参照しようとしますが、実際に参照するバージョンは環境によって変動します。<br />
+                    以下の条件を全て満たす場合、AtsEXはBVE5.8上でSlimDX 4.0を参照します。これにより、BVEは2.0・AtsEXは4.0と異なるバージョンのSlimDXを参照してしまう形となり、このエラーが発生します。
+                    <ol>
+                        <li>
+                            以下のうち、いずれか1つでもインストールしている
+                            <ul>
+                                <li>SlimDX Runtime for .NET 4.0</li>
+                                <li>SlimDX for .NET 4.0のDLLを含むSlimDX SDK</li>
+                            </ul>
+                        </li>
+                        <li>BveTs.exe.configにて、アセンブリバインディングのリダイレクトの設定をしていない</li>
+                    </ol>
+                    なお、条件2についてはver1.0-RC9以降のAtsEXをインストーラー版でインストールすることにより解消することができます。
+                    <mark>このエラーが発生したら、まずは最新版のAtsEXを<strong>インストーラー版で</strong>再インストールすることをご検討ください。</mark>
+                </p>
+            </div>
+
+            <h3 id="E-4">E-4：AtsEX 入力デバイスプラグイン版の有効化に失敗しました。AtsEX を正常に実行するには、BVE を再起動してください。</h3>
+            <p>
+                AtsEXを有効化するためには、一度BVEを再起動する必要があります。
+            </p>
+        </section>
+    </div>
+    <div class="white-space"></div>
+    <footer class="footer">
+        <script>includeByClasses("footer.html", "footer", 0);</script>
+    </footer>
+</body>
+</html>
