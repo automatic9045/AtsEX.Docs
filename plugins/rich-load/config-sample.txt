@@ -1,4 +1,5 @@
 ﻿&lt;?xml version="1.0" encoding="utf-8"?>
-&lt;RichLoadConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+&lt;RichLoadConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                BackgroundColor="Green" ProgressBarColor="#0000FF">
 	&lt;StaticImage Path="..\AtsEx.Samples\Thumbnails\Basic\ad.png" Width="2048" Height="1152" />
 &lt;/RichLoadConfig>
