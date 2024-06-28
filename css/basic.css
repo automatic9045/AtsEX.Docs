@@ -604,6 +604,14 @@ iframe.youtube {
     height: 315px;
 }
 
+iframe.form {
+    display: block;
+    margin: 0 auto;
+    width: 640px;
+    max-width: 100%;
+    height: 500px;
+}
+
 img, video {
     max-width: 100%;
 }
