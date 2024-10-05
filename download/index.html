@@ -76,11 +76,14 @@
                         <script>setLatestReleaseNoteTo('release-note');</script>
                         <span class="light-text">情報を取得中...</span>
                     </div>
-                    <h3>AtsEX本体+サンプルシナリオ</h3>
+                    <h3>AtsEX本体＋サンプルシナリオ＋AtsEX SDK</h3>
+                    <p>
+                        ver1.0-RC10以降、入力デバイスプラグイン版のみ提供しています。
+                    </p>
                     <p class="button-and-text">
                         <a class="button dark-green release-package-inputdevice-installer-button disabled" href="javascript:void(0);" tabindex="-1">
                             <script>setAsInputDeviceInstallerPackageLinkTo('release-package-inputdevice-installer-button');</script>
-                            ダウンロード<small>（入力デバイスプラグイン・exeインストーラー版）</small>
+                            ダウンロード<small>（exeインストーラー版）</small>
                             <img class="icon-download" src="img/download-white.svg" />
                         </a>
                         <span class="release-package-inputdevice-installer">
@@ -105,7 +108,7 @@
                             <p class="button-and-text">
                                 <a class="button with-border white-when-hover release-package-inputdevice-button disabled" href="javascript:void(0);" tabindex="-1">
                                     <script>setAsInputDevicePackageLinkTo('release-package-inputdevice-button');</script>
-                                    入力デバイスプラグイン・7z手動インストール版<small>をダウンロード</small>
+                                    7z手動インストール版<small>をダウンロード</small>
                                     <img class="icon-download" src="img/download-black.svg" />
                                 </a>
                                 <span class="release-package-inputdevice">
@@ -113,35 +116,28 @@
                                     <span class="light-text">情報を取得中...</span>
                                 </span>
                             </p>
+                            <p>
+                                ※ATSプラグイン版は廃止となりました（ver1.0-RC10～）。
+                            </p>
+
+                            <h4>手動インストール版にはAtsEX SDKは同梱されません</h4>
+                            <p>
+                                AtsEX本体同梱のサンプルシナリオに使われているプラグインのソースコードのセットです。<br />
+                                プラグイン開発をお考えの方は、本体と共にダウンロードされることをお勧めします。
+                            </p>
                             <p class="button-and-text">
-                                <a class="button with-border white-when-hover release-package-ats-button disabled" href="javascript:void(0);" tabindex="-1">
-                                    <script>setAsAtsPluginPackageLinkTo('release-package-ats-button');</script>
-                                    ATSプラグイン版<small>をダウンロード</small>
+                                <a class="button with-border white-when-hover release-sdk-button disabled" href="javascript:void(0);" tabindex="-1">
+                                    <script>setSdkLinkTo('release-sdk-button');</script>
+                                    SDKのダウンロード
                                     <img class="icon-download" src="img/download-black.svg" />
                                 </a>
-                                <span class="release-package-ats">
-                                    <script>setAsAtsPluginPackageInfoTo('release-package-ats');</script>
+                                <span class="release-sdk">
+                                    <script>setSdkInfoTo('release-sdk');</script>
                                     <span class="light-text">情報を取得中...</span>
                                 </span>
                             </p>
                         </details>
                     </div>
-                    <h3 id="sdk">AtsEX SDK</h3>
-                    <p>
-                        AtsEX本体同梱のサンプルシナリオに使われているプラグインのソースコードのセットです。<br />
-                        プラグイン開発をお考えの方は、本体と共にダウンロードされることをお勧めします。
-                    </p>
-                    <p class="button-and-text">
-                        <a class="button dark-green release-sdk-button disabled" href="javascript:void(0);" tabindex="-1">
-                            <script>setSdkLinkTo('release-sdk-button');</script>
-                            SDKのダウンロード
-                            <img class="icon-download" src="img/download-white.svg" />
-                        </a>
-                        <span class="release-sdk">
-                            <script>setSdkInfoTo('release-sdk');</script>
-                            <span class="light-text">情報を取得中...</span>
-                        </span>
-                    </p>
                 </div>
                 <div class="display-if-failed">
                     <script>displayIfFailedToGetRelease('display-if-failed');</script>

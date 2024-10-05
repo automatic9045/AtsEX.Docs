@@ -101,30 +101,26 @@ function setResetTimeTo(elementClassName) {
 
 function setPackageInfoTo(elementClassName, typeString, extensionString) {
 	setInfoTo(elementClassName, result => {
-		const asset = result.latestRelease.assets.find(x => x.name.endsWith("_" + typeString + "." + extensionString));
+		const asset = result.latestRelease.assets.find(x => x.name.endsWith(typeString + "." + extensionString));
 		return "<strong>" + asset.name + "</strong> (" + new Date(asset.created_at).toLocaleDateString() + ")";
 	});
 }
 
-function setAsAtsPluginPackageInfoTo(elementClassName) {
-	setPackageInfoTo(elementClassName, "AsAtsPlugin", "7z");
-}
-
 function setAsInputDevicePackageInfoTo(elementClassName) {
-	setPackageInfoTo(elementClassName, "AsInputDevice", "7z");
+	setPackageInfoTo(elementClassName, "", "7z");
 }
 
 function setAsInputDeviceInstallerPackageInfoTo(elementClassName) {
-	setPackageInfoTo(elementClassName, "AsInputDevice.Setup", "exe");
+	setPackageInfoTo(elementClassName, "_Setup", "exe");
 }
 
 function setSdkInfoTo(elementClassName) {
-	setPackageInfoTo(elementClassName, "SDK", "7z");
+	setPackageInfoTo(elementClassName, "_SDK", "7z");
 }
 
 function setPackageLinkTo(elementClassName, typeString, extensionString) {
 	invokeTo(elementClassName, (element, result) => {
-		const asset = result.latestRelease.assets.find(x => x.name.endsWith("_" + typeString + "." + extensionString));
+		const asset = result.latestRelease.assets.find(x => x.name.endsWith(typeString + "." + extensionString));
 
 		element.classList.remove("disabled");
 		element.setAttribute("tabindex", 0);
@@ -146,20 +142,16 @@ function setPackageLinkTo(elementClassName, typeString, extensionString) {
 	});
 }
 
-function setAsAtsPluginPackageLinkTo(elementClassName) {
-	setPackageLinkTo(elementClassName, "AsAtsPlugin", "7z");
-}
-
 function setAsInputDevicePackageLinkTo(elementClassName) {
-	setPackageLinkTo(elementClassName, "AsInputDevice", "7z");
+	setPackageLinkTo(elementClassName, "", "7z");
 }
 
 function setAsInputDeviceInstallerPackageLinkTo(elementClassName) {
-	setPackageLinkTo(elementClassName, "AsInputDevice.Setup", "exe");
+	setPackageLinkTo(elementClassName, "_Setup", "exe");
 }
 
 function setSdkLinkTo(elementClassName) {
-	setPackageLinkTo(elementClassName, "SDK", "7z");
+	setPackageLinkTo(elementClassName, "_SDK", "7z");
 }
 
 function hideIfFailedToGetRelease(elementClassName) {
