@@ -2,7 +2,7 @@
 const getLatestRelease = new Promise(resolve => {
 	if (_result == null) {
 		const xhr = new XMLHttpRequest();
-		xhr.open("GET", "https://api.github.com/repos/automatic9045/AtsEX/releases", true);
+		xhr.open("GET", "https://api.github.com/repos/automatic9045/AtsEX/releases?per_page=1", true);
 		xhr.onreadystatechange = (() => {
 			if (xhr.readyState != 4) return;
 
