@@ -89,7 +89,7 @@
                 <ul>
                     <li><a href="support/errors/#E-1">E-1：AtsEX のメインアセンブリの配置先 '～' は不正です。</a></li>
                     <li><a href="support/errors/#E-2">E-2：読み込まれた AtsEX Caller (バージョン x.x.x.x) は現在の AtsEX ではサポートされていません。beta0.16 (バージョン 0.16) 以降の AtsEX Caller をご利用ください。</a></li>
-                    <li><a href="support/errors/#E-3">E-3：BveTypeSet の読込に失敗しました。複数の SlimDX.dll が読み込まれていることが原因の可能性があります。</a></li>
+                    <li><a href="support/errors/#E-3">E-3：BveTypeSet の読込に失敗しました。複数の ～.dll が読み込まれていることが原因の可能性があります。</a></li>
                     <li><a href="support/errors/#E-4">E-4：AtsEX 入力デバイスプラグイン版の有効化に失敗しました。AtsEX を正常に実行するには、BVE を再起動してください。</a></li>
                 </ul>
             </section>
@@ -232,7 +232,34 @@
                 <a href="support/errors/#CA-2">CA-2：読み込まれた AtsEX Caller (バージョン x.x.x.x) は現在の AtsEX ではサポートされていません。</a> を参照
             </p>
 
-            <h3 id="E-3">E-3：BveTypeSet の読込に失敗しました。複数の SlimDX.dll が読み込まれていることが原因の可能性があります。</h3>
+            <h3 id="E-3">E-3：BveTypeSet の読込に失敗しました。複数の ～.dll が読み込まれていることが原因の可能性があります。</h3>
+            <h4>Irony.dllの場合</h4>
+            <p>
+                誤ったバージョンのIronyが読み込まれた場合に発生します。
+            </p>
+            <div class="note note-info">
+                <h4>参照するIronyのバージョンについて</h4>
+                <p>
+                    BVEはバージョンによって使用するIronyのバージョンが異なります。
+                </p>
+                <table class="with-border">
+                    <tr><th>BVEのバージョン</th><th>Ironyのバージョン</th></tr>
+                    <tr><td>BVE Trainsim 5.8</td><td>Irony v1.0</td></tr>
+                    <tr><td>BVE Trainsim 6</td><td>Irony v1.1</td></tr>
+                </table>
+                <p>
+                    一方、AtsEXは常に<strong>Irony v1.1</strong>を参照しようとしますが、実際に参照するバージョンは環境によって変動します。<br />
+                    以下の条件を全て満たす場合、AtsEXはBVE5.8上でIrony v1.1を参照します。これにより、BVEはv1.0・AtsEXはv1.1と異なるバージョンのIronyを参照してしまう形となり、このエラーが発生します。
+                    <ol>
+                        <li>AtsEX本体のフォルダなどにIrony.dllが存在する</li>
+                        <li>BveTs.exe.configにて、アセンブリバインディングのリダイレクトの設定をしていない</li>
+                    </ol>
+                    なお、条件2についてはver1.0-RC10以降のAtsEXをインストーラー版でインストールすることにより解消することができます。
+                    <mark>このエラーが発生したら、まずは最新版のAtsEXを<strong>インストーラー版で</strong>再インストールすることをご検討ください。</mark>
+                </p>
+            </div>
+
+            <h4>SlimDX.dllの場合</h4>
             <p>
                 誤ったバージョンのSlimDXが読み込まれた場合に発生します。
             </p>
