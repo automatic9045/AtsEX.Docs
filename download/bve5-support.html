@@ -49,6 +49,17 @@
                     「BVE6では動作するものの、BVE5では動作しない」という場合は一度お試しください。
                 </p>
             </div>
+
+            <div class="note note-info">
+                <h4>ver1.0-RC10以降、手順が変更となっています</h4>
+                <p>
+                    参照するライブラリの追加に伴い、BveTs.exe.configの編集内容が変更となっています。
+                    <mark>ver1.0-RC9以前</mark>からアップデートされる際は、<mark>そのままでは動作しません</mark>のでご注意ください。
+                </p>
+                <p>
+                    なお、現在ご紹介している新しい手順でも、ver1.0-RC9以前のAtsEXを動作させることは可能です。
+                </p>
+            </div>
         </section>
         <div class="gray">
             <section>
@@ -107,6 +118,10 @@
 &#009;&lt;/startup>
 &#009;&lt;runtime>
 &#009;&#009;&lt;assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+&#009;&#009;&#009;&lt;dependentAssembly>
+&#009;&#009;&#009;&#009;&lt;assemblyIdentity name="Irony" publicKeyToken="ca48ace7223ead47" />
+&#009;&#009;&#009;&#009;&lt;bindingRedirect oldVersion="1.0.0.1-1.9999.9999.9999" newVersion="1.0.0.0" />
+&#009;&#009;&#009;&lt;/dependentAssembly>
 &#009;&#009;&#009;&lt;dependentAssembly>
 &#009;&#009;&#009;&#009;&lt;assemblyIdentity name="SlimDX" publicKeyToken="b1b0c32fd1ffe4f9" />
 &#009;&#009;&#009;&#009;&lt;bindingRedirect oldVersion="4.0.0.0-4.9999.9999.9999" newVersion="2.0.13.43" />
