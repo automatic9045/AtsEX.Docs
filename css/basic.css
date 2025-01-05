@@ -629,6 +629,31 @@ img.icon-download {
     height: 1em;
 }
 
+.atsex::after {
+    content: "旧・AtsEX";
+    margin: 8px;
+    padding: 0px 6px;
+    border-radius: 4px;
+    outline: solid 1px var(--accent-color);
+    outline-offset: -1px;
+    color: var(--accent-color);
+    vertical-align: middle;
+    font-size: 0.6em;
+    white-space: nowrap;
+}
+
+.bveex::after {
+    content: "BveEX";
+    margin: 8px;
+    padding: 0px 6px;
+    border-radius: 4px;
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    vertical-align: middle;
+    font-size: 0.6em;
+    white-space: nowrap;
+}
+
 .light-text {
     color: var(--lighter-color);
 }
