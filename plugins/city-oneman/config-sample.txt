@@ -19,9 +19,9 @@
     &lt;AtsPanelValues>
       &lt;Mode Index="255" />
     &lt;/AtsPanelValues>
-    &lt;AtsSounds>
-      &lt;DoorSwitchOn Index="250" />
-      &lt;DoorSwitchOff Index="251" />
-    &lt;/AtsSounds>
+    &lt;Sounds>
+      &lt;DoorSwitchOn Path="Sound\SwitchOn.wav" />
+      &lt;DoorSwitchOff Path="Sound\SwitchOff.wav" />
+    &lt;/Sounds>
   &lt;/Vehicle>
 &lt;/Config>

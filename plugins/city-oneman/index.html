@@ -43,7 +43,7 @@
             <h1>都市型ワンマンプラグイン</h1>
             <p>
                 主に首都圏の地下鉄で見られる都市型ワンマン運転の、ドア開閉操作を再現するプラグインです。<br />
-                <strong>AtsEX車両プラグイン</strong>として実装されています。
+                <strong>BveEX車両プラグイン</strong>として実装されています。
             </p>
         </section>
         <section>
@@ -103,7 +103,8 @@
                     下のボタンよりダウンロードしたファイルを<strong>ゾーン識別子を削除した上で</strong>解凍し、車両ファイル（Vehicle.txtなど）に対する位置関係が次の画像のようになるように配置します。
                 </p>
                 <p>
-                    <img src="plugins/city-oneman/locating.png" />
+                    <img src="plugins/city-oneman/locating.png" /><br />
+                    <small>※「AtsEX」フォルダは「BveEX」と読み替えてください。</small>
                 </p>
                 <div class="note note-warn">
                     <h4>ゾーン識別子の削除を忘れずに！</h4>
@@ -116,11 +117,11 @@
                     </p>
                 </div>
                 <div class="note note-info">
-                    <h4>既にVehiclePluginUsing.xmlなどのAtsEX車両プラグインリストファイルが存在する場合</h4>
+                    <h4>既にVehiclePluginUsing.xmlなどのBveEX車両プラグインリストファイルが存在する場合</h4>
                     <p>
                         本プラグインに同梱のVehiclePluginUsing.xmlは使用せず、既存のプラグインリストファイルに以下のコードを追記してください。
                     </p>
-                    <pre><code class="language-xml">&lt;Assembly Path="AtsExPlugins\CityOneman.dll" /></code></pre>
+                    <pre><code class="language-xml">&lt;Assembly Path="BveExPlugins\CityOneman.dll" /></code></pre>
                 </div>
 
                 <h3>2. （必要に応じて）マップに地上子を設置する</h3>
@@ -206,14 +207,14 @@ Beacon.Put(900, 0, 0);</code></pre>
                         <td>モードをパネルに出力するインデックス。<code>-1</code>で使用しない</td>
                     </tr>
                     <tr>
-                        <td>AtsSounds→DoorSwitchOn</td>
-                        <td>-1</td>
-                        <td>ボタンを押すサウンドのインデックス。<code>-1</code>で使用しない</td>
+                        <td>Sounds→DoorSwitchOn</td>
+                        <td>-</td>
+                        <td>ボタンを押すサウンドの相対パス。指定しないか空文字列で使用しない</td>
                     </tr>
                     <tr>
-                        <td>AtsSounds→DoorSwitchOff</td>
-                        <td>-1</td>
-                        <td>ボタンを離すサウンドのインデックス。<code>-1</code>で使用しない</td>
+                        <td>Sounds→DoorSwitchOff</td>
+                        <td>-</td>
+                        <td>ボタンを離すサウンドの相対パス。指定しないか空文字列で使用しない</td>
                     </tr>
                 </table>
 
@@ -225,29 +226,13 @@ Beacon.Put(900, 0, 0);</code></pre>
         <section>
             <h2>ライセンス</h2>
             <p>
-                本ソフトウェアは、<a href="https://github.com/automatic9045/AtsEx.Plugins.CityOneman/blob/main/LICENSE.txt">The MIT License modified with Commons Clause v1.0</a>のもとで使用を許諾されています。<br />
+                本ソフトウェアは、<a href="https://github.com/automatic9045/BveEx.Plugins.CityOneman/blob/main/LICENSE.md">PolyForm Noncommercial License 1.0.0</a>のもとで使用を許諾されています。<br />
                 このライセンスにおいて許可されない方法での使用を希望される場合は、個別対応となりますので、お問い合わせください。
-            </p>
-
-            <h3>ライセンスの要約</h3>
-            <div class="note note-warn">
-                <p>
-                    以下の要約は正確な表現ではありません。
-                    正式な文面はGitHub リポジトリの<a href="https://github.com/automatic9045/AtsEx.Plugins.CityOneman/blob/main/LICENSE.txt">LICENSE.txt</a>を参照してください。
-                </p>
-            </div>
-            <p>
-                <ul>
-                    <li>原則として本ソフトウェアは自由に改変・使用することができます。</li>
-                    <li>ただし、本ソフトウェアを販売することはできません。</li>
-                    <li>また、本ソフトウェアを使った作品には、本ソフトウェアを使用している旨の著作権表示が必要です。</li>
-                    <li>本ソフトウェアを使用したことにより何かしらの損害を受けたとしても、作者は一切の責任を負わないものとします。</li>
-                </ul>
             </p>
 
             <h2>ダウンロード</h2>
             <p class="center">
-                <a class="button with-border white-when-hover" href="https://github.com/automatic9045/AtsEx.Plugins.CityOneman/releases/">
+                <a class="button with-border white-when-hover" href="https://github.com/automatic9045/BveEx.Plugins.CityOneman/releases/">
                     GitHubからダウンロード▶
                 </a>
             </p>
