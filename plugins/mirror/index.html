@@ -9,7 +9,7 @@
     <meta name="author" content="automatic9045" />
     <meta property="og:site_name" content="ミラープラグイン - AtsEX - 岡オカ営業所" />
     <meta property="og:title" content="ミラープラグイン - AtsEX - 岡オカ営業所" />
-    <meta property="og:description" content="マップ上に、実際の景色が映るミラーを設置するプラグインです。AtsEXマッププラグインとして実装されています。" />
+    <meta property="og:description" content="マップ上に、実際の景色が映るミラーを設置するプラグインです。BveEXマッププラグインとして実装されています。" />
     <meta property="og:type" content="article" />
     <meta property="og:image" content="https://www.okaoka-depot.com/AtsEX.Docs/img/ogp.png" />
     <meta property="og:locale" content="ja_JP" />
@@ -43,7 +43,7 @@
             <h1>ミラープラグイン</h1>
             <p>
                 マップ上に、実際の景色が映るミラーを設置するプラグインです。<br />
-                <strong>AtsEXマッププラグイン</strong>として実装されています。
+                <strong>BveEXマッププラグイン</strong>として実装されています。
             </p>
         </section>
         <section>
@@ -58,17 +58,20 @@
             <section>
                 <h2>プラグインをデータに組み込む手順</h2>
                 <h3>1. プラグインをマップに配置する</h3>
-                <h4>1-1. プラグインリストファイルを配置する</h4>
+                <h4>1-1. プラグイン本体を配置する</h4>
                 <p>
-                    下のボタンよりダウンロードしたファイルを<strong>ゾーン識別子を削除した上で</strong>解凍し、マップファイル（Map.txtなど）に対する位置関係が次の画像のようになるように配置します。
+                    マップファイル（Map.txtなど）に対する位置関係が次の画像のようになるように、新しいフォルダ「MapPlugins」を作成します。
                 </p>
                 <p>
                     <img src="plugins/mirror/locating.png" />
                 </p>
-
-                <h4>1-2. マップファイルにプラグインリストを指定する</h4>
                 <p>
-                    マップファイルを開き、次の例のように冒頭へ <code>AtsEx::USEATSEX</code> ヘッダー（または <code>AtsEx::NOMPI</code> ヘッダーでも可）、<code>AtsEx::MapPluginUsing</code> ヘッダーを追記します。
+                    下のボタンよりダウンロードしたファイルを<strong>ゾーン識別子を削除した上で</strong>解凍し、作成したMapPluginsフォルダの中に配置します。
+                </p>
+
+                <h4>1-2. マップファイルにプラグインを指定する</h4>
+                <p>
+                    マップファイルを開き、次の例のように冒頭へ <code>BveEx.Plugin.LoadAssembly</code> 構文（または <code>BveEx.Plugin.Load</code> 構文でプラグインリストを組み込んでも可）を追記します。
                 </p>
                 <pre><code id="map-sample" class="language-csharp"></code></pre>
                 <script>includeById("plugins/mirror/map-sample.txt", "map-sample");</script>
@@ -82,13 +85,6 @@
                     <p>
                         ゾーン識別子を削除する方法については、<a href="download/installation-guide/other.html">手動でのパッケージの適用方法 - AtsEXインストールガイド</a>の「1-1. ゾーン識別子を削除する」をご参照ください。
                     </p>
-                </div>
-                <div class="note note-info">
-                    <h4>既にMapPluginUsing.xmlなどのAtsEXマッププラグインリストファイルが存在する場合</h4>
-                    <p>
-                        本プラグインに同梱のMapPluginUsing.xmlは使用せず、既存のプラグインリストファイルに以下のコードを追記してください。
-                    </p>
-                    <pre><code class="language-xml">&lt;Assembly Path="MapPlugins\Mirror.dll" /></code></pre>
                 </div>
 
                 <h3>2. ミラーとして使用するストラクチャーをマップ上に設置する</h3>
@@ -185,29 +181,13 @@
         <section>
             <h2>ライセンス</h2>
             <p>
-                本ソフトウェアは、<a href="https://github.com/automatic9045/AtsEx.Plugins.Mirror/blob/main/LICENSE.txt">The MIT License modified with Commons Clause v1.0</a>のもとで使用を許諾されています。<br />
+                本ソフトウェアは、<a href="https://github.com/automatic9045/BveEx.Plugins.Mirror/blob/main/LICENSE.md">PolyForm Noncommercial License 1.0.0</a>のもとで使用を許諾されています。<br />
                 このライセンスにおいて許可されない方法での使用を希望される場合は、個別対応となりますので、お問い合わせください。
-            </p>
-
-            <h3>ライセンスの要約</h3>
-            <div class="note note-warn">
-                <p>
-                    以下の要約は正確な表現ではありません。
-                    正式な文面はGitHub リポジトリの<a href="https://github.com/automatic9045/AtsEx.Plugins.Mirror/blob/main/LICENSE.txt">LICENSE.txt</a>を参照してください。
-                </p>
-            </div>
-            <p>
-                <ul>
-                    <li>原則として本ソフトウェアは自由に改変・使用することができます。</li>
-                    <li>ただし、本ソフトウェアを販売することはできません。</li>
-                    <li>また、本ソフトウェアを使った作品には、本ソフトウェアを使用している旨の著作権表示が必要です。</li>
-                    <li>本ソフトウェアを使用したことにより何かしらの損害を受けたとしても、作者は一切の責任を負わないものとします。</li>
-                </ul>
             </p>
 
             <h2>ダウンロード</h2>
             <p class="center">
-                <a class="button with-border white-when-hover" href="https://github.com/automatic9045/AtsEx.Plugins.Mirror/releases/">
+                <a class="button with-border white-when-hover" href="https://github.com/automatic9045/BveEx.Plugins.Mirror/releases/">
                     GitHubからダウンロード▶
                 </a>
             </p>
