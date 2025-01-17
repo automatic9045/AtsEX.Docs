@@ -9,7 +9,7 @@
     <meta name="author" content="automatic9045" />
     <meta property="og:site_name" content="自列車ストラクチャープラグイン - AtsEX - 岡オカ営業所" />
     <meta property="og:title" content="自列車ストラクチャープラグイン - AtsEX - 岡オカ営業所" />
-    <meta property="og:description" content="自列車の動きに追随するストラクチャーを設置するプラグインです。AtsEX車両プラグインとして実装されています。" />
+    <meta property="og:description" content="自列車の動きに追随するストラクチャーを設置するプラグインです。BveEX車両プラグインとして実装されています。" />
     <meta property="og:type" content="article" />
     <meta property="og:image" content="https://www.okaoka-depot.com/AtsEX.Docs/img/ogp.png" />
     <meta property="og:locale" content="ja_JP" />
@@ -43,7 +43,7 @@
             <h1>自列車ストラクチャープラグイン</h1>
             <p>
                 自列車の動きに追随するストラクチャーを設置するプラグインです。<br />
-                <strong>AtsEX車両プラグイン</strong>として実装されています。
+                <strong>BveEX車両プラグイン</strong>として実装されています。
             </p>
         </section>
         <section>
@@ -73,7 +73,8 @@
                     下のボタンよりダウンロードしたファイルを<strong>ゾーン識別子を削除した上で</strong>解凍し、車両ファイル（Vehicle.txtなど）に対する位置関係が次の画像のようになるように配置します。
                 </p>
                 <p>
-                    <img src="plugins/vehicle-structure/locating.png" />
+                    <img src="plugins/vehicle-structure/locating.png" /><br />
+                    <small>※「AtsExPlugins」フォルダは「BveExPlugins」と読み替えてください。</small>
                 </p>
                 <div class="note note-warn">
                     <h4>ゾーン識別子の削除を忘れずに！</h4>
@@ -86,11 +87,11 @@
                     </p>
                 </div>
                 <div class="note note-info">
-                    <h4>既にVehiclePluginUsing.xmlなどのAtsEX車両プラグインリストファイルが存在する場合</h4>
+                    <h4>既にVehiclePluginUsing.xmlなどのBveEX車両プラグインリストファイルが存在する場合</h4>
                     <p>
                         本プラグインに同梱のVehiclePluginUsing.xmlは使用せず、既存のプラグインリストファイルに以下のコードを追記してください。
                     </p>
-                    <pre><code class="language-xml">&lt;Assembly Path="AtsExPlugins\VehicleStructure.dll" /></code></pre>
+                    <pre><code class="language-xml">&lt;Assembly Path="BveExPlugins\VehicleStructure.dll" /></code></pre>
                 </div>
 
                 <h3>2. 車両ストラクチャーを配置し、設定ファイルに記述する</h3>
@@ -112,34 +113,93 @@
                         <th>内容</th>
                     </tr>
                     <tr>
-                        <td>Vibrate</td>
+                        <td colspan="3">DoorAnimations → DoorAnimation（要素）</td>
+                    </tr>
+                    <tr>
+                        <td>├ Key</td>
+                        <td>-</td>
+                        <td>アニメーションのキー。Door要素のAnimationKey属性から参照される</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">└ OpenDiagram・CloseDiagram（要素）</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">　└ （各属性・子要素）</td>
+                        <td>アニメーションの方法を定義。<s>詳細は<a href="plugins/vehicle-structure/door-animation.html">こちら</a>で解説</s> 準備中</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">VehicleTrain → StructureGroups → StructureGroup（要素）</td>
+                    </tr>
+                    <tr>
+                        <td>├ Vibrate</td>
                         <td>false</td>
                         <td>このグループのストラクチャーを、自列車の揺れに合わせて振動させるか。<span class="wbr"><br /></span><code>true</code>で振動させる、<code>false</code>で振動させない</td>
                     </tr>
                     <tr>
-                        <td>FirstStructureFront</td>
+                        <td>├ FirstStructureFront</td>
                         <td>0</td>
                         <td>（<code>Vibrate="true"</code>の場合のみ）<span class="wbr"><br /></span>自列車原点から車両3Dモデルの原点までの符号付き距離 [m]</td>
                     </tr>
                     <tr>
-                        <td>Structure<span class="wbr"><br /></span>→Model</td>
+                        <td colspan="3">└ Structure（要素）</td>
+                    </tr>
+                    <tr>
+                        <td>　├ Model</td>
                         <td>-</td>
-                        <td>他列車ストラクチャーとして使用する3Dモデルの相対パス</td>
+                        <td>車両3Dモデルの相対パス</td>
                     </tr>
                     <tr>
-                        <td>Structure<span class="wbr"><br /></span>→Distance</td>
+                        <td>　├ Distance</td>
                         <td>0</td>
-                        <td>他列車ファイルの同名キーに対応。<span class="wbr"><br /></span>他列車原点から後側軌道交点（台車中心など）までの距離 [m]</td>
+                        <td>他列車ファイルの同名キーに対応。<span class="wbr"><br /></span>他列車原点から後側軌道交点（台車中心など）までの符号付き距離 [m]</td>
                     </tr>
                     <tr>
-                        <td>Structure<span class="wbr"><br /></span>→Span</td>
+                        <td>　├ Span</td>
                         <td>0</td>
-                        <td>他列車ファイルの同名キーに対応。<span class="wbr"><br /></span>後側軌道交点と前側軌道交点の間の距離 [m]</td>
+                        <td>他列車ファイルの同名キーに対応。<span class="wbr"><br /></span>後側軌道交点と前側軌道交点の間の符号付き距離 [m]</td>
                     </tr>
                     <tr>
-                        <td>Structure<span class="wbr"><br /></span>→Z</td>
+                        <td>　├ Z</td>
                         <td>0</td>
-                        <td>他列車ファイルの同名キーに対応。<span class="wbr"><br /></span>後側軌道交点からストラクチャー原点までのZ座標 [m]</td>
+                        <td>他列車ファイルの同名キーに対応。<span class="wbr"><br /></span>後側軌道交点から車両3Dモデル原点までの符号付き距離 [m]</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">　└ Doors → Door（要素）</td>
+                    </tr>
+                    <tr>
+                        <td>　　├ Model</td>
+                        <td>-</td>
+                        <td>ドア3Dモデルの相対パス</td>
+                    </tr>
+                    <tr>
+                        <td>　　├ X</td>
+                        <td>0</td>
+                        <td>車両3Dモデルの原点を基準とした、ドア3DモデルのX座標 [m]</td>
+                    </tr>
+                    <tr>
+                        <td>　　├ Y</td>
+                        <td>0</td>
+                        <td>車両3Dモデルの原点を基準とした、ドア3DモデルのY座標 [m]</td>
+                    </tr>
+                    <tr>
+                        <td>　　├ Z</td>
+                        <td>0</td>
+                        <td>車両3Dモデルの原点を基準とした、ドア3DモデルのZ座標 [m]</td>
+                    </tr>
+                    <tr>
+                        <td>　　├ Side</td>
+                        <td>Left</td>
+                        <td>どちら側のドアか。<code>Left</code>か<code>Right</code>で指定</td>
+                    </tr>
+                    <tr>
+                        <td>　　├ OpenWidth</td>
+                        <td>0</td>
+                        <td>ドアが完全に開き切ったときの符号付き移動距離 [m]</td>
+                    </tr>
+                    <tr>
+                        <td>　　└ AnimationKey</td>
+                        <td>-</td>
+                        <td>このドアに適用するアニメーションのキー。<span class="wbr"><br /></span>キーが見つからない場合は既定のアニメーションを使用</td>
                     </tr>
                 </table>
 
@@ -151,29 +211,15 @@
         <section>
             <h2>ライセンス</h2>
             <p>
-                本ソフトウェアは、<a href="https://github.com/automatic9045/AtsEx.Plugins.VehicleStructure/blob/main/LICENSE.txt">The MIT License modified with Commons Clause v1.0</a>のもとで使用を許諾されています。<br />
+                本ソフトウェアは、<a href="https://github.com/automatic9045/BveEx.Plugins.VehicleStructure/blob/main/LICENSE.md">PolyForm Noncommercial License 1.0.0</a>のもとで使用を許諾されています。<br />
                 このライセンスにおいて許可されない方法での使用を希望される場合は、個別対応となりますので、お問い合わせください。
-            </p>
-
-            <h3>ライセンスの要約</h3>
-            <div class="note note-warn">
-                <p>
-                    以下の要約は正確な表現ではありません。
-                    正式な文面はGitHub リポジトリの<a href="https://github.com/automatic9045/AtsEx.Plugins.VehicleStructure/blob/main/LICENSE.txt">LICENSE.txt</a>を参照してください。
-                </p>
-            </div>
-            <p>
-                <ul>
-                    <li>原則として本ソフトウェアは自由に改変・使用することができます。</li>
-                    <li>ただし、本ソフトウェアを販売することはできません。</li>
-                    <li>また、本ソフトウェアを使った作品には、本ソフトウェアを使用している旨の著作権表示が必要です。</li>
-                    <li>本ソフトウェアを使用したことにより何かしらの損害を受けたとしても、作者は一切の責任を負わないものとします。</li>
-                </ul>
             </p>
 
             <h2>ダウンロード</h2>
             <p class="center">
-                <a href="plugins/mirror/">ミラープラグイン</a>に同梱しています。
+                <a class="button with-border white-when-hover" href="https://github.com/automatic9045/BveEx.Plugins.VehicleStructure/releases/">
+                    GitHubからダウンロード▶
+                </a>
             </p>
         </section>
 
