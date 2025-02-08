@@ -7,8 +7,8 @@
     <meta name="theme-color" content="#fff" />
 
     <meta name="author" content="automatic9045" />
-    <meta property="og:site_name" content="AtsEX - 岡オカ営業所" />
-    <meta property="og:title" content="AtsEXインストールガイド 手順1b: AtsEXをGitHubから直接ダウンロードするには - AtsEX - 岡オカ営業所" />
+    <meta property="og:site_name" content="BveEX - 岡オカ営業所" />
+    <meta property="og:title" content="BveEXインストールガイド 手順1b: BveEXをGitHubから直接ダウンロードするには - BveEX - 岡オカ営業所" />
     <meta property="og:description" content="ダウンロードページにて「サーバーが混雑しているため、お手数ですがGitHubから直接のダウンロードをお願いします」と表示されることがあります。このメッセージが表示された場合、誠に恐縮ですが当HPのかんたんダウンロード機能は混雑のためご利用いただけません。パッケージはGitHubから直接ダウンロードする必要があります。このページではパッケージをGitHubから直接ダウンロードする方法について説明します。" />
     <meta property="og:type" content="article" />
     <meta property="og:image" content="https://www.okaoka-depot.com/AtsEX.Docs/img/ogp.png" />
@@ -16,7 +16,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@atF9045" />
 
-    <title>AtsEXインストールガイド 手順1b: AtsEXをGitHubから直接ダウンロードするには - AtsEX - 岡オカ営業所</title>
+    <title>BveEXインストールガイド 手順1b: BveEXをGitHubから直接ダウンロードするには - BveEX - 岡オカ営業所</title>
     <base href="https://www.okaoka-depot.com/AtsEX.Docs/" />
     <link rel="icon" type="image/svg+xml" href="../img/bus.svg">
     <link rel="apple-touch-icon" type="image/png" href="../img/bus.png">
@@ -35,8 +35,8 @@
     <div id="content">
         <section class="title-with-description">
             <h1>
-                AtsEXインストールガイド 手順1b:<br />
-                AtsEXをGitHubから直接ダウンロードするには
+                BveEXインストールガイド 手順1b:<br />
+                BveEXをGitHubから直接ダウンロードするには
             </h1>
             <p>
                 ダウンロードページにて「サーバーが混雑しているため、お手数ですがGitHubから直接のダウンロードをお願いします」と表示されることがあります。<br />
@@ -50,13 +50,13 @@
             <section>
                 <h3>1b-1. 最新バージョンのリリースページにアクセスする</h3>
                 <a class="card" href="https://github.com/automatic9045/AtsEX/releases/" target="_blank">
-                    <h3>Releases・automatic9045/AtsEX</h3>
+                    <h3>Releases・automatic9045/BveEX</h3>
                     <p>
-                        GitHub上に公開しているAtsEX本体のリポジトリです。
+                        GitHub上に公開しているBveEX本体のリポジトリです。
                     </p>
                 </a>
                 <p>
-                    上のリンク (別サイト) にアクセスし、最も上に表示されている最新のリリースのタイトル (2023/05/22時点では「beta0.19 - v0.19.30520.1」) をクリックします。
+                    上のリンク (別サイト) にアクセスし、最も上に表示されている最新のリリースのタイトル (2025/02/08時点では「ver2.0.5 - v2.0.50204.1」) をクリックします。
                 </p>
                 <p>
                     <img src="download/installation-guide/1b-1.png" />
@@ -70,36 +70,11 @@
 
                 <h3>1b-3. ダウンロード</h3>
                 <p>
-                    ページ最下部の「Assets」からAtsEX本体をダウンロードします。<br />
-                    入力デバイスプラグイン版、ATSプラグイン版の2種類を提供しています。インストールにかかる手間が圧倒的に違うため、<mark>特に理由がなければ入力デバイスプラグイン版をおすすめします。</mark>
-                </p>
-                <p>
-                    入力デバイスプラグイン版は「AtsEx_[バージョン名]_AsInputDevice.7z」、ATSプラグイン版は「AtsEx_[バージョン名]_AsAtsPlugin.7z」になります。
+                    ページ最下部の「Assets」からBveEX本体のインストーラーをダウンロードします。<br />
+                    「BveEx_[バージョン名]_Setup.exe」を選択します。
                 </p>
                 <p>
                     <img src="download/installation-guide/1b-2.png" />
-                </p>
-                <div class="note note-info">
-                    <h4>ATSプラグイン版が必要になるケース</h4>
-                    <p>
-                        入力デバイスプラグイン版をインストールできないケースが存在します。以下はその例です（ご自身の環境が該当していても、場合によっては入力デバイスプラグイン版をインストールできることもあります）。
-                    </p>
-                    <ul>
-                        <li>
-                            BVE本体をProgram Filesフォルダ内にインストールしており、かつPCの管理者権限がない場合
-                            <ul>
-                                <li>お子様がご両親のPCを借りてBVEをプレイしている場合はこれに該当することがあります。</li>
-                            </ul>
-                        </li>
-                        <li>
-                            LinuxやMacなどWindows以外のOSのPCで、Wineを介してBVEをプレイしている場合
-                        </li>
-                    </ul>
-                </div>
-
-                <p>
-                    また、プラグインを開発される場合は「AtsEx_[バージョン名]_SDK.7z」も併せてダウンロードすることをお勧めします。
-                    こちらはサンプルプラグインのソースコードのセットで、プラグイン開発の際の参考になるかと思います。
                 </p>
             </section>
         </div>

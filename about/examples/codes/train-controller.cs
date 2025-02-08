@@ -2,49 +2,54 @@
 
 using BveTypes.ClassWrappers;
 
-using AtsEx.PluginHost;
-using AtsEx.PluginHost.Input.Native;
-using AtsEx.PluginHost.Plugins;
+using BveEx.Extensions.Native;
+using BveEx.PluginHost;
+using BveEx.PluginHost.Input;
+using BveEx.PluginHost.Plugins;
 
-namespace AtsEx.Samples.MapPlugins.TrainController {
-    // 規定のクラスを継承することでプラグインとみなされます
-    [PluginType(PluginType.MapPlugin)]
+namespace BveEx.Samples.MapPlugins.TrainController {
+    // 規定のクラスを継承することでプラグインとみなされる
+    [Plugin(PluginType.MapPlugin)]
     public class TrainController : AssemblyPluginBase {
         private Train Train;
-        private double Speed = 25 / 3.6; // 25[km/h] = (25 / 3.6)[m/s]
+        private double Speed = 25 / 3.6; // 25 km/h = 25 / 3.6 m/s
 
         public TrainController(PluginBuilder builder) : base(builder) {
-            BveHacker.ScenarioCreated += e => Train = e.Scenario.Trains["test"];
-
-            Native.NativeKeys.AtsKeys[NativeAtsKeyName.D].Pressed += OnDPressed;
-            Native.NativeKeys.AtsKeys[NativeAtsKeyName.E].Pressed += OnEPressed;
+            BveHacker.ScenarioCreated += OnScenarioCreated;
         }
-
-        private void OnDPressed(object sender, EventArgs e) => Train.TrainInfo.TrackKey = "1";
-        private void OnEPressed(object sender, EventArgs e) => Train.TrainInfo.TrackKey = "0";
 
         public override void Dispose() {
-            Native.NativeKeys.AtsKeys[NativeAtsKeyName.D].Pressed -= OnDPressed;
-            Native.NativeKeys.AtsKeys[NativeAtsKeyName.E].Pressed -= OnEPressed;
+            BveHacker.ScenarioCreated -= OnScenarioCreated;
         }
 
-        public override TickResult Tick(TimeSpan elapsed) {
-            if (Native.NativeKeys.AtsKeys[NativeAtsKeyName.F].IsPressed) Speed -= 10.0 * elapsed.Ticks / TimeSpan.TicksPerMillisecond / 1000;
-            if (Native.NativeKeys.AtsKeys[NativeAtsKeyName.G].IsPressed) Speed += 10.0 * elapsed.Ticks / TimeSpan.TicksPerMillisecond / 1000;
+        private void OnScenarioCreated(ScenarioCreatedEventArgs e) {
+            // 本サンプルでは、キーが 'test' の他列車を操作する。
+            // 操作対象の他列車が定義されていない場合はエラーで終了
+            if (!e.Scenario.Trains.TryGetValue("test", out Train train)) {
+                throw new BveFileLoadException("キーが 'test' の他列車が見つかりませんでした。", "TrainController");
+            }
 
+            Train = train;
+        }
+
+        public override void Tick(TimeSpan elapsed) {
+            // F キーが押下されていたら減速、G キーが押下されていたら加速
+            INative native = Extensions.GetExtension<INative>();
+            if (native.AtsKeys.GetKey(AtsKeyName.F).IsPressed) Speed -= 10.0 * elapsed.Ticks / TimeSpan.TicksPerMillisecond / 1000;
+            if (native.AtsKeys.GetKey(AtsKeyName.G).IsPressed) Speed += 10.0 * elapsed.Ticks / TimeSpan.TicksPerMillisecond / 1000;
+
+            // キーの押下にかかわらず、時間経過に応じて一定程度減速させる
             if (Speed > 0) {
                 Speed -= 2.0 * elapsed.Ticks / TimeSpan.TicksPerMillisecond / 1000;
                 if (Speed < 0) Speed = 0d;
-            }
-            else if (Speed < 0) {
+            } else if (Speed < 0) {
                 Speed += 2.0 * elapsed.Ticks / TimeSpan.TicksPerMillisecond / 1000;
                 if (Speed > 0) Speed = 0d;
             }
 
+            // ここまで計算した速度をもとに、操作対象の他列車の位置 (距離程) と速度を更新
             Train.Location += Speed * elapsed.Ticks / TimeSpan.TicksPerMillisecond / 1000;
             Train.Speed = Speed;
-
-            return new MapPluginTickResult();
         }
     }
 }
