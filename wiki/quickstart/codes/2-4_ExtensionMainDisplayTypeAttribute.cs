@@ -1,10 +1,11 @@
 ﻿using System;
-using AtsEx.PluginHost.Plugins;
-using AtsEx.PluginHost.Plugins.Extensions;
 
-[PluginType(PluginType.Extension)]
+using BveEx.PluginHost.Plugins;
+using BveEx.PluginHost.Plugins.Extensions;
+
+[Plugin(PluginType.Extension)]
 [ExtensionMainDisplayType(typeof(IHogeExtension))]
-internal class HogeExtension : AssemblyPluginBase, IHogeExtension
+internal class PluginMain : AssemblyPluginBase, IHogeExtension
 {
     // ...略...
 }

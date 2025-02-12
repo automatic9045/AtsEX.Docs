@@ -1,11 +1,12 @@
 ﻿using System;
-using AtsEx.PluginHost.Plugins;
-using AtsEx.PluginHost.Plugins.Extensions;
 
-[PluginType(PluginType.Extension)]
-internal class ExtensionMain : AssemblyPluginBase, IExtension
+using BveEx.PluginHost.Plugins;
+using BveEx.PluginHost.Plugins.Extensions;
+
+[Plugin(PluginType.Extension)]
+internal class PluginMain : AssemblyPluginBase, IExtension
 {
-    public ExtensionMain(PluginBuilder builder) : base(builder)
+    public PluginMain(PluginBuilder builder) : base(builder)
     {
     }
 
@@ -15,6 +16,5 @@ internal class ExtensionMain : AssemblyPluginBase, IExtension
 
     public override void Tick(TimeSpan elapsed)
     {
-        return new ExtensionTickResult();
     }
 }
