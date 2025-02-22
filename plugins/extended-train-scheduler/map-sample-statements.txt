@@ -3,31 +3,31 @@
 	Train['test'].Load('TestTrain.txt', '1', -1);
 
 8;
-	// 12km/h/s で減速し、停車する
+	// 3 km/h/s で減速し、停車する
 	Train['test'].Stop(3, 0, 0, 0);
 
 16;
 	// 軌道 '0' に移動する
 	BveEx.User.Automatic9045.ExtendedTrainScheduler.Train['test'].SetTrack('0');
 
-	// 5km/h/s で減速し、9:54:50 まで停車した後、20km/h/s で 10km/h まで加速する
+	// 5 km/h/s で減速し、9:54:50 まで停車した後、20 km/h/s で 10 km/h まで加速する
 	BveEx.User.Automatic9045.ExtendedTrainScheduler.Train['test'].StopUntil(5, '9:54:50', 20, 10);
 
 24;
 	// 軌道 '1' に移動する
 	BveEx.User.Automatic9045.ExtendedTrainScheduler.Train['test'].SetTrack('1');
 
-	// この位置へ目がけて、50km/h/s で 5km/h まで減速する (減速なので加速度はマイナス指定)
+	// この位置へ目がけて、50 km/h/s で 5 km/h まで減速する (減速なので加速度はマイナス指定)
 	BveEx.User.Automatic9045.ExtendedTrainScheduler.Train['test'].Accelerate.ToHere(5, -50);
 
 350;
-	// この位置から、15km/h/s で 100km/h まで加速する
+	// この位置から、15 km/h/s で 100 km/h まで加速する
 	BveEx.User.Automatic9045.ExtendedTrainScheduler.Train['test'].Accelerate.FromHere(100, 15);
 
 400;
-	// 12km/h/s で減速し、5 秒停車した後、10km/h/s で 20km/h まで加速する
+	// 12 km/h/s で減速し、5 秒停車した後、10 km/h/s で 20 km/h まで加速する
 	Train['test'].Stop(12, 5, 10, 20);
 
 700;
-	// 5 秒停車した後、10km/h/s で 50km/h まで加速する
+	// 5 秒停車した後、10 km/h/s で 50 km/h まで加速する
 	Train['test'].Stop(0, 5, 10, 50);
