@@ -36,14 +36,18 @@
             color: #ff000040;
         }
 
-        div.q-and-a > p.answer1, div.q-and-a > p.answer2 {
+        div.q-and-a > p.answer1, div.q-and-a > p.answer2, div.q-and-a > p.answer3 {
             padding-left: 48px;
         }
 
-        div.q-and-a > p.answer1::before {
-            content: 'A1';
-        }
+            div.q-and-a > p.answer1::before {
+                content: 'A1';
+            }
 
-        div.q-and-a > p.answer2::before {
-            content: 'A2';
-        }
+            div.q-and-a > p.answer2::before {
+                content: 'A2';
+            }
+
+            div.q-and-a > p.answer3::before {
+                content: 'A3';
+            }
